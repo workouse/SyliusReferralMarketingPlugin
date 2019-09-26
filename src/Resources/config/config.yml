@@ -1,0 +1,5 @@
+sylius_mailer:
+  emails:
+    reference_invite:
+      subject: "Reference Invite"
+      template: "@EresSyliusReferralMarketingPlugin/Email/ReferenceInvite.html.twig"

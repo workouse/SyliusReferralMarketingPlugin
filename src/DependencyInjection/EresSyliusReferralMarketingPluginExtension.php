@@ -21,4 +21,11 @@ final class EresSyliusReferralMarketingPluginExtension extends Extension
 
         $loader->load('services.yml');
     }
+
+
+    public function getAlias()
+    {
+        return 'eres_sylius_referral_marketing';
+    }
+
 }

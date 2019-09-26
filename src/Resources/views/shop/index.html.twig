@@ -1,0 +1,53 @@
+{% extends '@EresSyliusReferralMarketingPlugin/shop/layout.html.twig' %}
+
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+
+{% block subcontent %}
+    <div class="ui stackable two column grid">
+        <div class="column">
+            <h1 class="ui heaeres_sylius_referral_marketing_newder">
+                {{ 'eres_sylius_referral_marketing_plugin.ui.referral_marketing'|trans }}
+            </h1>
+        </div>
+        <div class="middle aligned column">
+            <a href="{{ path('eres_sylius_referral_marketing_new') }}" class="ui right floated blue button"><i
+                        class="circle plus icon"></i> {{ 'eres_sylius_referral_marketing_plugin.ui.add_reference'|trans }}
+            </a>
+        </div>
+    </div>
+
+    {% if references|length > 0 %}
+        <div class="ui segment spaceless sylius-grid-table-wrapper">
+            <table class="ui very basic celled table">
+                <thead>
+                <tr>
+                    <th>{{ 'eres_sylius_referral_marketing_plugin.ui.referral_name'|trans }}</th>
+                    <th>{{ 'eres_sylius_referral_marketing_plugin.ui.referral_email'|trans }}</th>
+                    <th>{{ 'eres_sylius_referral_marketing_plugin.ui.referral_status'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for reference in references %}
+                    <tr>
+                        <td>{{ reference.referrerName }}</td>
+                        <td>{{ reference.referrerEmail }}</td>
+                        <td>
+                            {% if reference.status %}
+                                <span class="ui green label">
+                                    {{ 'eres_sylius_referral_marketing_plugin.ui.referral_approved'|trans }}
+                                </span>
+                            {% else %}
+                                <span class="ui blue label">
+                                    {{ 'eres_sylius_referral_marketing_plugin.ui.referral_new'|trans }}
+                                </span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        {{ messages.info('eres_sylius_referral_marketing_plugin.ui.you_have_no_referral_defined') }}
+    {% endif %}
+{% endblock %}

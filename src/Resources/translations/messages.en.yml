@@ -1,0 +1,16 @@
+eres_sylius_referral_marketing_plugin:
+  menu:
+    referral_marketing: Referral marketing
+  ui:
+    referral_marketing: Referral marketing
+    add_reference: Add Reference
+    referral_name: Name
+    referral_email: Email
+    referral_status: Status
+    referral_active: Active
+    referral_approved: Approved
+    referral_new: New
+    you_have_no_referral_defined: You have no referral defined
+  form:
+    referrer_name: Referrer Name
+    referrer_email: Referrer Email

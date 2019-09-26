@@ -1,0 +1,17 @@
+eres_sylius_referral_marketing_index:
+  path: /account/referral-marketing/
+  defaults:
+    _controller: EresSyliusReferralMarketingPlugin:Reference:index
+
+eres_sylius_referral_marketing_new:
+  path: /account/referral-marketing/add
+  defaults:
+    _controller: EresSyliusReferralMarketingPlugin:Reference:new
+
+eres_sylius_referral_marketing_check:
+  path: /referral-marketing/{hash}.{_format}
+  defaults:
+    _controller: EresSyliusReferralMarketingPlugin:Reference:check
+  format: gif
+  requirements:
+    _format: gif|png|jpg|jpeg

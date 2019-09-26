@@ -1,0 +1,10 @@
+{% block subject %}
+    Reference Invite
+{% endblock %}
+
+{% block body %}
+    {{ name }} <br>
+    {{ email }} <br>
+    <img src="{{ absolute_url(path('eres_sylius_referral_marketing_check', { 'hash': hash, '_format': 'gif' })) }}"
+         alt="">
+{% endblock %}

@@ -1,0 +1,9 @@
+services:
+  eres_sylius_referral_marketing_plugin.promotion:
+    class: Eres\SyliusReferralMarketingPlugin\Service\PromotionService
+    public: true
+
+  eres_sylius_referral_marketing_plugin.listener.shop.menu_builder:
+    class: Eres\SyliusReferralMarketingPlugin\Menu\AccountMenuListener
+    tags:
+      - { name: kernel.event_listener, event: sylius.menu.shop.account, method: addAccountMenuItems }
