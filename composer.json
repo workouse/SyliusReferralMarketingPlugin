@@ -1,8 +1,8 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "workouse/referral-marketing-sylius",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
-    "description": "Acme example plugin for Sylius.",
+    "description": "Referral Marketing Bundle for Sylius E-Commerce",
     "license": "MIT",
     "require": {
         "php": "^7.2",
@@ -44,8 +44,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "Eres\\SyliusReferralMarketingPlugin\\": "src/",
+            "Tests\\Eres\\SyliusReferralMarketingPlugin\\": "tests/"
         }
     },
     "autoload-dev": {
