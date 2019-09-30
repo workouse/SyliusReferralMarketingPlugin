@@ -14,3 +14,6 @@ eres_sylius_referral_marketing_plugin:
   form:
     referrer_name: Referrer Name
     referrer_email: Referrer Email
+    promotion_coupon:
+      customer: Customer
+      please_choose: Please choose customer

@@ -3,3 +3,9 @@ sylius_mailer:
     reference_invite:
       subject: "Reference Invite"
       template: "@EresSyliusReferralMarketingPlugin/Email/ReferenceInvite.html.twig"
+
+sylius_promotion:
+  resources:
+    promotion_coupon:
+      classes:
+        model: Eres\SyliusReferralMarketingPlugin\Entity\PromotionCoupon

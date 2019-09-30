@@ -7,3 +7,20 @@ services:
     class: Eres\SyliusReferralMarketingPlugin\Menu\AccountMenuListener
     tags:
       - { name: kernel.event_listener, event: sylius.menu.shop.account, method: addAccountMenuItems }
+
+  eres_sylius_referral_marketing_plugin.form.extension.type.api_order_promotion_coupon:
+    class: Eres\SyliusReferralMarketingPlugin\Form\Extension\PromotionCouponTypeExtension
+    tags:
+      - { name: form.type_extension, extended_type: Sylius\Bundle\PromotionBundle\Form\Type\PromotionCouponType }
+
+  eres_sylius_referral_marketing_plugin.form.type.promotion_rule.customer_configuration:
+    class: Eres\SyliusReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType
+    tags:
+      - { name: form.type }
+
+  eres_sylius_referral_marketing_plugin.promotion_rule_checker.customer:
+    class: Eres\SyliusReferralMarketingPlugin\Promotion\Checker\Rule\CustomerRuleChecker
+    arguments:
+      - '@security.helper'
+    tags:
+      - { name: sylius.promotion_rule_checker, type: customer, form_type: Eres\SyliusReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType, label: customer }
