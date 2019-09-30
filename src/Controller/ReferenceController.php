@@ -4,6 +4,7 @@
 namespace Eres\SyliusReferralMarketingPlugin\Controller;
 
 use Eres\SyliusReferralMarketingPlugin\Entity\Reference;
+use Eres\SyliusReferralMarketingPlugin\Event\ReferenceEvent;
 use Eres\SyliusReferralMarketingPlugin\Form\Type\ReferenceType;
 use Eres\SyliusReferralMarketingPlugin\Service\TransparentPixelResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,6 +71,11 @@ class ReferenceController extends AbstractController
         if ($referrer) {
             $referrer->setStatus(true);
             $this->getDoctrine()->getManager()->flush();
+
+            $event = new ReferenceEvent($referrer);
+            $dispatcher = $this->get('event_dispatcher');
+            $dispatcher->dispatch($event, ReferenceEvent::NAME);
+
         }
 
         return new TransparentPixelResponse($_format);

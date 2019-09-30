@@ -1,7 +1,20 @@
+parameters:
+  referrer_promotion_code: '%env(REFERRAL_MARKETING_REFERRER_PROMOTION_CODE)%'
+  invitee_promotion_code: '%env(REFERRAL_MARKETING_INVITEE_PROMOTION_CODE)%'
+
 services:
   eres_sylius_referral_marketing_plugin.promotion:
     class: Eres\SyliusReferralMarketingPlugin\Service\PromotionService
     public: true
+    arguments:
+      - '@sylius.repository.promotion_rule'
+      - '@eres_sylius_referral_marketing_plugin.promotion_coupon_generator'
+      - '@sylius.repository.customer'
+      - '@doctrine.orm.default_entity_manager'
+      - '@sylius.canonicalizer'
+      - '@sylius.repository.promotion'
+      - '%referrer_promotion_code%'
+      - '%invitee_promotion_code%'
 
   eres_sylius_referral_marketing_plugin.listener.shop.menu_builder:
     class: Eres\SyliusReferralMarketingPlugin\Menu\AccountMenuListener
@@ -24,3 +37,18 @@ services:
       - '@security.helper'
     tags:
       - { name: sylius.promotion_rule_checker, type: customer, form_type: Eres\SyliusReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType, label: customer }
+
+  eres_sylius_referral_marketing_plugin.promotion_coupon_generator:
+    class: Eres\SyliusReferralMarketingPlugin\Service\PromotionCouponGenerator
+    arguments:
+      - '@sylius.factory.promotion_coupon'
+      - '@sylius.repository.promotion_coupon'
+      - '@sylius.manager.promotion_coupon'
+      - '@sylius.promotion_coupon_generator.percentage_policy'
+
+  eres_sylius_referral_marketing_plugin.promotion_reference_subscriber:
+    class: Eres\SyliusReferralMarketingPlugin\EventSubscriber\ReferenceSubscriber
+    arguments:
+      - '@eres_sylius_referral_marketing_plugin.promotion'
+    tags:
+      - { name: 'kernel.event_listener', event: 'reference.post', method: 'completeReferenceAfter' }

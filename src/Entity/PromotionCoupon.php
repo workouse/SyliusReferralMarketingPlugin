@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Sylius\Component\Core\Model\PromotionCoupon as BasePromotionCoupon;
+use Sylius\Component\Customer\Model\Customer;
 
 /**
  * @Entity
@@ -26,7 +27,7 @@ class PromotionCoupon extends BasePromotionCoupon
         return $this->customer;
     }
 
-    public function setCustomer($customer): void
+    public function setCustomer(Customer $customer): void
     {
         $this->customer = $customer;
     }

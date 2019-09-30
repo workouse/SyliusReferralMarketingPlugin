@@ -4,7 +4,7 @@
 namespace Eres\SyliusReferralMarketingPlugin\Form\Extension;
 
 use Sylius\Bundle\PromotionBundle\Form\Type\PromotionCouponType;
-use Sylius\Component\Core\Model\Customer;
+use Sylius\Component\Customer\Model\Customer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
