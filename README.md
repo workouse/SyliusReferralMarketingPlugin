@@ -29,7 +29,7 @@ Import routing in your `config/routes.yaml` file:
 # config/routes.yaml
 ...
 
-eres_sylius_referral_marketing_plugin:
+workouse_referral_marketing_plugin:
     resource: "@WorkouseReferralMarketingPlugin/Resources/config/shop_routing.yml"
 ```
 
