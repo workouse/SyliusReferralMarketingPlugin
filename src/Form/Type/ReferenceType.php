@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Form\Type;
+namespace Workouse\ReferralMarketingPlugin\Form\Type;
 
 
-use Eres\SyliusReferralMarketingPlugin\Entity\Reference;
+use Workouse\ReferralMarketingPlugin\Entity\Reference;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

@@ -1,4 +1,4 @@
 suites:
     main:
-        namespace: Eres\SyliusReferralMarketingPlugin
-        psr4_prefix: Eres\SyliusReferralMarketingPlugin
+        namespace: Workouse\ReferralMarketingPlugin
+        psr4_prefix: Workouse\ReferralMarketingPlugin

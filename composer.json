@@ -44,8 +44,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Eres\\SyliusReferralMarketingPlugin\\": "src/",
-            "Tests\\Eres\\SyliusReferralMarketingPlugin\\": "tests/"
+            "Workouse\\ReferralMarketingPlugin\\": "src/",
+            "Tests\\Workouse\\ReferralMarketingPlugin\\": "tests/"
         }
     },
     "autoload-dev": {

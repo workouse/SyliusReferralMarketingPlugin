@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Service;
+namespace Workouse\ReferralMarketingPlugin\Service;
 
 use Sylius\Component\Customer\Model\Customer;
 use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInstructionInterface;

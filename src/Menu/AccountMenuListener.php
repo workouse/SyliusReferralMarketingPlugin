@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Menu;
+namespace Workouse\ReferralMarketingPlugin\Menu;
 
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
 

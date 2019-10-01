@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Entity;
+namespace Workouse\ReferralMarketingPlugin\Entity;
 
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;

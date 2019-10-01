@@ -7,7 +7,7 @@ Add plugin dependencies to your `config/bundles.php` file:
 return [
     ...
 
-    Eres\SyliusReferralMarketingPlugin\EresSyliusReferralMarketingPlugin::class => ['all' => true],
+    Workouse\ReferralMarketingPlugin\WorkouseReferralMarketingPlugin::class => ['all' => true],
 ];
 ```
 
@@ -19,7 +19,7 @@ Import required config in your `config/packages/_sylius.yaml` file:
 imports:
     ...
     
-    - { resource: "@EresSyliusReferralMarketingPlugin/Resources/config/config.yml" }
+    - { resource: "@WorkouseReferralMarketingPlugin/Resources/config/config.yml" }
 ```
 
 Import routing in your `config/routes.yaml` file:
@@ -30,7 +30,7 @@ Import routing in your `config/routes.yaml` file:
 ...
 
 eres_sylius_referral_marketing_plugin:
-    resource: "@EresSyliusReferralMarketingPlugin/Resources/config/shop_routing.yml"
+    resource: "@WorkouseReferralMarketingPlugin/Resources/config/shop_routing.yml"
 ```
 
 Extend entity
@@ -42,7 +42,7 @@ declare(strict_types=1);
 namespace App\Entity\Promotion;
 
 use Doctrine\ORM\Mapping as ORM;
-use Eres\SyliusReferralMarketingPlugin\Entity\PromotionCouponTrait;
+use Workouse\ReferralMarketingPlugin\Entity\PromotionCouponTrait;
 use Sylius\Component\Core\Model\PromotionCoupon as BasePromotionCoupon;
 
 /**

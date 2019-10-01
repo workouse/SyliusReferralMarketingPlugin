@@ -1,6 +1,6 @@
 <?php
 
-use Tests\Eres\SyliusReferralMarketingPlugin\Application\Kernel;
+use Tests\Workouse\ReferralMarketingPlugin\Application\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

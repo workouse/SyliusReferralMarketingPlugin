@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\EventSubscriber;
+namespace Workouse\ReferralMarketingPlugin\EventSubscriber;
 
-use Eres\SyliusReferralMarketingPlugin\Event\ReferenceEvent;
-use Eres\SyliusReferralMarketingPlugin\Service\PromotionInterface;
+use Workouse\ReferralMarketingPlugin\Event\ReferenceEvent;
+use Workouse\ReferralMarketingPlugin\Service\PromotionInterface;
 
 class ReferenceSubscriber
 {

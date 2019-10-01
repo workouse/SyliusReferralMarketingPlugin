@@ -38,7 +38,7 @@ default:
         FriendsOfBehat\SymfonyExtension:
             bootstrap: tests/Application/config/bootstrap.php
             kernel:
-                class: Tests\Eres\SyliusReferralMarketingPlugin\Application\Kernel
+                class: Tests\Workouse\ReferralMarketingPlugin\Application\Kernel
 
         FriendsOfBehat\VariadicExtension: ~
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Service;
+namespace Workouse\ReferralMarketingPlugin\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Component\Promotion\Exception\FailedGenerationException;

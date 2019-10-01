@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Service;
+namespace Workouse\ReferralMarketingPlugin\Service;
 
-use Eres\SyliusReferralMarketingPlugin\Entity\Reference;
+use Workouse\ReferralMarketingPlugin\Entity\Reference;
 
 interface PromotionInterface
 {

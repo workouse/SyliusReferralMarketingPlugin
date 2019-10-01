@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Form\Type\Rule;
+namespace Workouse\ReferralMarketingPlugin\Form\Type\Rule;
 
 use Symfony\Component\Form\AbstractType;
 

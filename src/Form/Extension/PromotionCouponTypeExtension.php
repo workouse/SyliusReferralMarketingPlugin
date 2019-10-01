@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Form\Extension;
+namespace Workouse\ReferralMarketingPlugin\Form\Extension;
 
 use Sylius\Bundle\PromotionBundle\Form\Type\PromotionCouponType;
 use Sylius\Component\Customer\Model\Customer;

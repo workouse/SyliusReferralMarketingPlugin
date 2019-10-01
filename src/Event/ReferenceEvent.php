@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Event;
+namespace Workouse\ReferralMarketingPlugin\Event;
 
-use Eres\SyliusReferralMarketingPlugin\Entity\Reference;
+use Workouse\ReferralMarketingPlugin\Entity\Reference;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class ReferenceEvent extends Event

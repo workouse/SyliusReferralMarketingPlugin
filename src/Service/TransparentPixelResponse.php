@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Service;
+namespace Workouse\ReferralMarketingPlugin\Service;
 
 use Symfony\Component\HttpFoundation\Response;
 

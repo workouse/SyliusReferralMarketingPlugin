@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Eres\SyliusReferralMarketingPlugin\Service;
+namespace Workouse\ReferralMarketingPlugin\Service;
 
 use Doctrine\ORM\EntityManager;
-use Eres\SyliusReferralMarketingPlugin\Entity\Reference;
+use Workouse\ReferralMarketingPlugin\Entity\Reference;
 use Sylius\Component\Customer\Model\Customer;
 use Sylius\Component\Customer\Model\CustomerInterface;
 use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInstructionInterface;
