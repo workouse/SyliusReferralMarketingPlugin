@@ -34,7 +34,7 @@ eres_sylius_referral_marketing_plugin:
 ```
 
 Extend entity
-```
+```php
 <?php
 
 declare(strict_types=1);
