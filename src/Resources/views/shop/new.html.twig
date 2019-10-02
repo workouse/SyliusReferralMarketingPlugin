@@ -5,15 +5,15 @@
 {% block subcontent %}
     <div class="ui segment">
         <h1 class="ui dividing header">
-            {{ 'eres_sylius_referral_marketing_plugin.ui.referral_marketing'|trans }}
-            <div class="sub header">{{ 'eres_sylius_referral_marketing_plugin.ui.add_reference'|trans }}</div>
+            {{ 'workouse_referral_marketing_plugin.ui.referral_marketing'|trans }}
+            <div class="sub header">{{ 'workouse_referral_marketing_plugin.ui.add_reference'|trans }}</div>
         </h1>
 
-        {{ form_start(form, {'action': path('eres_sylius_referral_marketing_new'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
+        {{ form_start(form, {'action': path('workouse_referral_marketing_new'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
         {{ form_widget(form) }}
         <div class="ui two column grid">
             <div class="column">
-                <a href="{{ path('eres_sylius_referral_marketing_index') }}" class="ui large icon labeled button">
+                <a href="{{ path('workouse_referral_marketing_index') }}" class="ui large icon labeled button">
                     <i class="left arrow icon"></i> {{ 'sylius.ui.cancel'|trans }}
                 </a>
             </div>

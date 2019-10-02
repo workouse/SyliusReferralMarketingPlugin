@@ -14,13 +14,18 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('eres_sylius_referral_marketing_plugin');
+        $treeBuilder = new TreeBuilder('workouse_referral_marketing');
         if (\method_exists($treeBuilder, 'getRootNode')) {
             $rootNode = $treeBuilder->getRootNode();
         } else {
             // BC layer for symfony/config 4.1 and older
-            $rootNode = $treeBuilder->root('eres_sylius_referral_marketing_plugin');
+            $rootNode = $treeBuilder->root('workouse_referral_marketing');
         }
+
+        $rootNode
+            ->children()
+            ->scalarNode('service')->isRequired()->end()
+            ->end();
 
         return $treeBuilder;
     }

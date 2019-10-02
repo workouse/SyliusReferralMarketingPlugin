@@ -36,7 +36,7 @@ class ReferenceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $referance = $form->getData();
 
-            $promotionService = $this->get('eres_sylius_referral_marketing_plugin.promotion');
+            $promotionService = $this->get('workouse_referral_marketing_plugin.promotion');
 
             $referance->setHash($promotionService->createHash($this->getUser()->getCustomer()->getEmail(), $referance->getReferrerEmail()));
             $em = $this->getDoctrine()->getManager();
@@ -53,7 +53,7 @@ class ReferenceController extends AbstractController
             $flashBag = $request->getSession()->getBag('flashes');
             $flashBag->add('success', 'sylius.customer.add_address');
 
-            return $this->redirectToRoute('eres_sylius_referral_marketing_index');
+            return $this->redirectToRoute('workouse_referral_marketing_index');
         }
 
         return $this->render('@WorkouseReferralMarketingPlugin/shop/new.html.twig', [

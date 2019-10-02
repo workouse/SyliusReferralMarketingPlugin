@@ -3,12 +3,12 @@ parameters:
   invitee_promotion_code: '%env(REFERRAL_MARKETING_INVITEE_PROMOTION_CODE)%'
 
 services:
-  eres_sylius_referral_marketing_plugin.promotion:
+  workouse_referral_marketing_plugin.promotion:
     class: Workouse\ReferralMarketingPlugin\Service\PromotionService
     public: true
     arguments:
       - '@sylius.repository.promotion_rule'
-      - '@eres_sylius_referral_marketing_plugin.promotion_coupon_generator'
+      - '@workouse_referral_marketing_plugin.promotion_coupon_generator'
       - '@sylius.repository.customer'
       - '@doctrine.orm.default_entity_manager'
       - '@sylius.canonicalizer'
@@ -16,29 +16,29 @@ services:
       - '%referrer_promotion_code%'
       - '%invitee_promotion_code%'
 
-  eres_sylius_referral_marketing_plugin.listener.shop.menu_builder:
+  workouse_referral_marketing_plugin.listener.shop.menu_builder:
     class: Workouse\ReferralMarketingPlugin\Menu\AccountMenuListener
     tags:
       - { name: kernel.event_listener, event: sylius.menu.shop.account, method: addAccountMenuItems }
 
-  eres_sylius_referral_marketing_plugin.form.extension.type.api_order_promotion_coupon:
+  workouse_referral_marketing_plugin.form.extension.type.api_order_promotion_coupon:
     class: Workouse\ReferralMarketingPlugin\Form\Extension\PromotionCouponTypeExtension
     tags:
       - { name: form.type_extension, extended_type: Sylius\Bundle\PromotionBundle\Form\Type\PromotionCouponType }
 
-  eres_sylius_referral_marketing_plugin.form.type.promotion_rule.customer_configuration:
+  workouse_referral_marketing_plugin.form.type.promotion_rule.customer_configuration:
     class: Workouse\ReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType
     tags:
       - { name: form.type }
 
-  eres_sylius_referral_marketing_plugin.promotion_rule_checker.customer:
+  workouse_referral_marketing_plugin.promotion_rule_checker.customer:
     class: Workouse\ReferralMarketingPlugin\Promotion\Checker\Rule\CustomerRuleChecker
     arguments:
       - '@security.helper'
     tags:
       - { name: sylius.promotion_rule_checker, type: customer, form_type: Workouse\ReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType, label: customer }
 
-  eres_sylius_referral_marketing_plugin.promotion_coupon_generator:
+  workouse_referral_marketing_plugin.promotion_coupon_generator:
     class: Workouse\ReferralMarketingPlugin\Service\PromotionCouponGenerator
     arguments:
       - '@sylius.factory.promotion_coupon'
@@ -46,9 +46,10 @@ services:
       - '@sylius.manager.promotion_coupon'
       - '@sylius.promotion_coupon_generator.percentage_policy'
 
-  eres_sylius_referral_marketing_plugin.promotion_reference_subscriber:
+  workouse_referral_marketing_plugin.promotion_reference_subscriber:
     class: Workouse\ReferralMarketingPlugin\EventSubscriber\ReferenceSubscriber
     arguments:
-      - '@eres_sylius_referral_marketing_plugin.promotion'
+      - '@service_container'
+      - '%workouse_referral_marketing.service%'
     tags:
       - { name: 'kernel.event_listener', event: 'reference.post', method: 'completeReferenceAfter' }

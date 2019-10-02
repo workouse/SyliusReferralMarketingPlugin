@@ -9,6 +9,6 @@ class CustomerConfigurationType extends AbstractType
 {
     public function getBlockPrefix()
     {
-        return 'eres_sylius_referral_marketing_plugin_promotion_rule_customer_configuration';
+        return 'workouse_referral_marketing_plugin_promotion_rule_customer_configuration';
     }
 }

@@ -8,7 +8,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="eres_sylius_referral_marketing_reference")
+ * @ORM\Table(name="workouse_referral_marketing_reference")
  * @UniqueEntity(
  *     fields={"invitee", "referrerEmail"},
  *     errorPath="referrerEmail"

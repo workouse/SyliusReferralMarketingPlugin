@@ -19,13 +19,13 @@ class ReferenceType extends AbstractType
     {
         $builder
             ->add('referrerName', TextType::class, [
-                'label' => 'eres_sylius_referral_marketing_plugin.form.referrer_name',
+                'label' => 'workouse_referral_marketing_plugin.form.referrer_name',
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
             ->add('referrerEmail', EmailType::class, [
-                'label' => 'eres_sylius_referral_marketing_plugin.form.referrer_email',
+                'label' => 'workouse_referral_marketing_plugin.form.referrer_email',
                 'constraints' => [
                     new NotBlank(),
                     new Email()

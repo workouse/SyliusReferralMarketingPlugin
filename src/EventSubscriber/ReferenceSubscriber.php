@@ -3,22 +3,27 @@
 
 namespace Workouse\ReferralMarketingPlugin\EventSubscriber;
 
+use Symfony\Component\DependencyInjection\Container;
 use Workouse\ReferralMarketingPlugin\Event\ReferenceEvent;
 use Workouse\ReferralMarketingPlugin\Service\PromotionInterface;
 
 class ReferenceSubscriber
 {
-    /** @var PromotionInterface */
-    private $promotion;
+    /** @var Container */
+    private $container;
 
-    public function __construct(PromotionInterface $promotion)
+    /** @var PromotionInterface */
+    private $serviceName;
+
+    public function __construct(Container $container, $serviceName)
     {
-        $this->promotion = $promotion;
+        $this->container = $container;
+        $this->serviceName = $serviceName;
     }
 
     public function completeReferenceAfter(ReferenceEvent $event)
     {
-        $this->promotion->execute($event->getReference());
+        $this->container->get($this->serviceName)->execute($event->getReference());
 
     }
 }

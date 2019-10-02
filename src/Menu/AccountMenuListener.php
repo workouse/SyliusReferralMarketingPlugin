@@ -12,8 +12,8 @@ final class AccountMenuListener
         $menu = $event->getMenu();
 
         $menu
-            ->addChild('referral_marketing', ['route' => 'eres_sylius_referral_marketing_index'])
-            ->setLabel('eres_sylius_referral_marketing_plugin.menu.referral_marketing')
+            ->addChild('referral_marketing', ['route' => 'workouse_referral_marketing_index'])
+            ->setLabel('workouse_referral_marketing_plugin.menu.referral_marketing')
             ->setLabelAttribute('icon', 'user');
     }
 }
