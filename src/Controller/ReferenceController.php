@@ -51,7 +51,7 @@ class ReferenceController extends AbstractController
 
             /** @var FlashBagInterface $flashBag */
             $flashBag = $request->getSession()->getBag('flashes');
-            $flashBag->add('success', 'sylius.customer.add_address');
+            $flashBag->add('success', 'workouse_referral_marketing_plugin.referrer.added');
 
             return $this->redirectToRoute('workouse_referral_marketing_index');
         }
