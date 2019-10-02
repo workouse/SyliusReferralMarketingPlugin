@@ -1,0 +1,19 @@
+workouse_referral_marketing_plugin:
+  menu:
+    referral_marketing: Referans pazarlama
+  ui:
+    referral_marketing: Referans pazarlama
+    add_reference: Referans Ekle
+    referral_name: Ad Soyad
+    referral_email: E-posta
+    referral_status: Durum
+    referral_active: Aktif
+    referral_approved: Onaylandı
+    referral_new: Yeni
+    you_have_no_referral_defined: Tanımlanmış referans yok
+  form:
+    referrer_name: Referans Adı
+    referrer_email: Referans E-posta
+    promotion_coupon:
+      customer: Müşteri
+      please_choose: Lütfen müşteri seçiniz
