@@ -1,3 +1,6 @@
+## referral-marketing-sylius
+Referral Marketing Bundle for Sylius E-Commerce. Provides customers to send invitations to each other by e-mail and win coupons
+
 ## Installation
 ```bash
 $ composer require workouse/referral-marketing-sylius
@@ -55,6 +58,15 @@ class PromotionCoupon extends BasePromotionCoupon
     
     // ...
 }
+```
+
+Configuration in your `config/routes.yaml` file:
+```yaml
+#config/packages/workouse_referral_marketing.yml
+workouse_referral_marketing:
+    service: 'workouse_referral_marketing_plugin.promotion'
+    referrer_promotion_code: 'referrer_promotion'
+    invitee_promotion_code: 'invitee_promotion'
 ```
 
 Finish the installation by updating the database schema and installing assets:
