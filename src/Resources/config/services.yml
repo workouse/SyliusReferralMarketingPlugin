@@ -1,7 +1,3 @@
-parameters:
-  referrer_promotion_code: '%env(REFERRAL_MARKETING_REFERRER_PROMOTION_CODE)%'
-  invitee_promotion_code: '%env(REFERRAL_MARKETING_INVITEE_PROMOTION_CODE)%'
-
 services:
   workouse_referral_marketing_plugin.promotion:
     class: Workouse\ReferralMarketingPlugin\Service\PromotionService
@@ -13,8 +9,8 @@ services:
       - '@doctrine.orm.default_entity_manager'
       - '@sylius.canonicalizer'
       - '@sylius.repository.promotion'
-      - '%referrer_promotion_code%'
-      - '%invitee_promotion_code%'
+      - '%workouse_referral_marketing.referrer_promotion_code%'
+      - '%workouse_referral_marketing.invitee_promotion_code%'
 
   workouse_referral_marketing_plugin.listener.shop.menu_builder:
     class: Workouse\ReferralMarketingPlugin\Menu\AccountMenuListener

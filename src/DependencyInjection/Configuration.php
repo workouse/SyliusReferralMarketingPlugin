@@ -25,6 +25,8 @@ final class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
             ->scalarNode('service')->isRequired()->end()
+            ->scalarNode('referrer_promotion_code')->isRequired()->end()
+            ->scalarNode('invitee_promotion_code')->isRequired()->end()
             ->end();
 
         return $treeBuilder;
