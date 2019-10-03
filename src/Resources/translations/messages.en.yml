@@ -17,3 +17,4 @@ workouse_referral_marketing_plugin:
     promotion_coupon:
       customer: Customer
       please_choose: Please choose customer
+  this_user_is_registered_in_the_system: This user is registered in the system

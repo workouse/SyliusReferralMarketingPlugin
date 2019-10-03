@@ -17,3 +17,4 @@ workouse_referral_marketing_plugin:
     promotion_coupon:
       customer: Müşteri
       please_choose: Lütfen müşteri seçiniz
+    this_user_is_registered_in_the_system: Bu kullanıcı sisteme kayıtlıdır

@@ -5,6 +5,7 @@ namespace Workouse\ReferralMarketingPlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrer;
 
 /**
  * @ORM\Entity()
@@ -13,6 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *     fields={"invitee", "referrerEmail"},
  *     errorPath="referrerEmail"
  * )
+ * @UniqueReferrer()
  */
 class Reference
 {

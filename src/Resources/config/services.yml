@@ -53,3 +53,12 @@ services:
       - '%workouse_referral_marketing.service%'
     tags:
       - { name: 'kernel.event_listener', event: 'reference.post', method: 'completeReferenceAfter' }
+
+  workouse_referral_marketing_plugin.unique_referrer_validator:
+    class: Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrerValidator
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@translator.data_collector'
+    tags:
+        - { name: validator.constraint_validator, alias: 'unique_referrer' }
+      
