@@ -1,0 +1,12 @@
+default:
+  suites:
+    customer:
+      contexts:
+        - sylius.behat.context.hook.doctrine_orm
+        - sylius.behat.context.setup.channel
+        - sylius.behat.context.setup.shop_security
+        - sylius.behat.context.setup.user
+        - workouse_referral_marketing_plugin.context.ui.shop.reference
+
+      filters:
+        tags: "@customer && @ui"

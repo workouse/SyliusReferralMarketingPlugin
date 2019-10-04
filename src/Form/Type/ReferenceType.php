@@ -21,13 +21,17 @@ class ReferenceType extends AbstractType
             ->add('referrerName', TextType::class, [
                 'label' => 'workouse_referral_marketing_plugin.form.referrer_name',
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank([
+                        'message' => 'workouse_referral_marketing_plugin.referrer_name.not_blank'
+                    ]),
                 ],
             ])
             ->add('referrerEmail', EmailType::class, [
                 'label' => 'workouse_referral_marketing_plugin.form.referrer_email',
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank([
+                        'message' => 'workouse_referral_marketing_plugin.referrer_email.not_blank'
+                    ]),
                     new Email()
                 ],
             ]);

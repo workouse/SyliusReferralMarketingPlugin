@@ -1,0 +1,5 @@
+workouse_referral_marketing_plugin:
+  referrer_name:
+    not_blank: Referrer Name cannot be blank.
+  referrer_email:
+    not_blank: Referrer Email cannot be blank.

@@ -1,0 +1,13 @@
+services:
+  workouse_referral_marketing_plugin.context.ui.shop.reference:
+    class: Tests\Workouse\ReferralMarketingPlugin\Behat\Context\Ui\Shop\ReferenceContext
+    public: true
+    arguments:
+      - '@sylius.behat.shared_storage'
+      - '@sylius.behat.current_page_resolver'
+      - '@sylius.behat.notification_checker'
+      - '@workouse_referral_marketing_plugin.page.shop.reference_new'
+
+  workouse_referral_marketing_plugin.page.shop.reference_new:
+    class: Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceNewPage
+    parent: sylius.behat.symfony_page
