@@ -1,5 +1,5 @@
 workouse_referral_marketing_plugin:
   referrer_name:
-    not_blank: Referans Ad Soyad cannot be blank.
+    not_blank: Referans Ad Soyad boş olamaz.
   referrer_email:
-    not_blank: Referans Ad E-posta cannot be blank.
+    not_blank: Referans Ad E-posta boş olamaz.
