@@ -54,7 +54,7 @@ services:
     class: Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrerValidator
     arguments:
       - '@doctrine.orm.entity_manager'
-      - '@translator.data_collector'
+      - '@translator'
     tags:
         - { name: validator.constraint_validator, alias: 'unique_referrer' }
-      
+
