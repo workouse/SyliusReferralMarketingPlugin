@@ -46,7 +46,8 @@ class ReferenceController extends AbstractController
             $this->get('sylius.email_sender')->send('reference_invite', [$referance->getReferrerEmail()], [
                 'name' => $referance->getReferrerName(),
                 'email' => $referance->getReferrerEmail(),
-                'hash' => $referance->getHash()
+                'hash' => $referance->getHash(),
+                'user' => $this->getUser()->getCustomer()
             ]);
 
             /** @var FlashBagInterface $flashBag */
