@@ -1,10 +1,11 @@
 {% block subject %}
-    Reference Invite
+    {{ user.fistName }} {{ user.lastName }} has sent you a gift!
 {% endblock %}
 
 {% block body %}
-    {{ name }} <br>
-    {{ email }} <br>
+    Hi {{ name }},
+    <br>
+    Your friend {{ user.fistName }} {{ user.lastName }} has sent you a gift!
     <img src="{{ absolute_url(path('workouse_referral_marketing_check', { 'hash': hash, '_format': 'gif' })) }}"
          alt="">
 {% endblock %}
