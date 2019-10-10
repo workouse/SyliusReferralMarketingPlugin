@@ -3,6 +3,8 @@ Referral Marketing Bundle for Sylius E-Commerce. Provides customers to send invi
 
 Screenshots:
 <img src="https://github.com/workouse/referral-marketing-sylius/blob/master/screenshot_1.png" alt="Referral Marketing Bundle" width="100%">
+<img src="https://github.com/workouse/referral-marketing-sylius/blob/master/screenshot_2.png" alt="Referral Marketing Bundle Add Reference" width="100%">
+<img src="https://github.com/workouse/referral-marketing-sylius/blob/master/screenshot_3.png" alt="Referral Marketing Bundle Referance invite mail" width="100%">
 
 ## Installation
 ```bash
