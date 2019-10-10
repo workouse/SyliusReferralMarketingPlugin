@@ -1,6 +1,9 @@
 ## referral-marketing-sylius
 Referral Marketing Bundle for Sylius E-Commerce. Provides customers to send invitations to each other by e-mail and win coupons
 
+Screenshots:
+<img src="https://github.com/workouse/referral-marketing-sylius/blob/master/screenshot_1.png" alt="Referral Marketing Bundle" width="100%">
+
 ## Installation
 ```bash
 $ composer require workouse/referral-marketing-sylius
