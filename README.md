@@ -1,5 +1,6 @@
 ## referral-marketing-sylius
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/workouse/referral-marketing-sylius/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/workouse/referral-marketing-sylius/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/workouse/referral-marketing-sylius/badges/build.png?b=master)](https://scrutinizer-ci.com/g/workouse/referral-marketing-sylius/build-status/master)
 
 Referral Marketing Bundle for Sylius E-Commerce. Provides customers to send invitations to each other by e-mail and win coupons
 
