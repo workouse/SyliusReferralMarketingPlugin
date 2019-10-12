@@ -1,34 +1,33 @@
 build:
   nodes:
-    coverage:
+    tests:
       cache:
         directories:
           - ~/.composer/cache/files
           - $SYLIUS_CACHE_DIR
-      tests:
-        environment:
-          selenium: true
-          variables:
-            - APP_ENV=test
-            - SYLIUS_CACHE_DIR=$HOME/.sylius-cache
-            - SYLIUS_BUILD_DIR=etc/build
-          php:
-            version: 7.2  # or any other released version
-            ini:
-                'memory_limit': '4096M'
-        dependencies:
-          before:
-            - 'phpenv config-rm xdebug.ini'
-            - 'mkdir -p "${SYLIUS_CACHE_DIR}"'
+      environment:
+        selenium: true
+        variables:
+          - APP_ENV=test
+          - SYLIUS_CACHE_DIR=$HOME/.sylius-cache
+          - SYLIUS_BUILD_DIR=etc/build
+        php:
+          version: 7.2  # or any other released version
+          ini:
+              'memory_limit': '4096M'
+      dependencies:
         before:
-          - (cd tests/Application && bin/console doctrine:database:create -vvv)
-          - (cd tests/Application && bin/console doctrine:schema:create -vvv)
-          - (cd tests/Application && bin/console assets:install public -vvv)
-          - (cd tests/Application && bin/console cache:warmup -vvv)
-          - (cd tests/Application && yarn build)
+          - 'phpenv config-rm xdebug.ini'
+          - 'mkdir -p "${SYLIUS_CACHE_DIR}"'
+      before:
+        - (cd tests/Application && bin/console doctrine:database:create -vvv)
+        - (cd tests/Application && bin/console doctrine:schema:create -vvv)
+        - (cd tests/Application && bin/console assets:install public -vvv)
+        - (cd tests/Application && bin/console cache:warmup -vvv)
+        - (cd tests/Application && yarn build)
 
-          # Configure display
-          - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
-          - export DISPLAY=:99
-          # Run webserver
-          - (cd tests/Application && bin/console server:run 127.0.0.1:8080 --quiet > /dev/null 2>&1 &)
+        # Configure display
+        - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
+        - export DISPLAY=:99
+        # Run webserver
+        - (cd tests/Application && bin/console server:run 127.0.0.1:8080 --quiet > /dev/null 2>&1 &)
