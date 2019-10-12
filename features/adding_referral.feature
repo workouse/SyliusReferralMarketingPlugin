@@ -37,3 +37,16 @@ Feature: Adding referral
     And I fill the Referrer Email with "omer@eresbiotech.com"
     And I try to add it
     Then I should be notified that there is already an existing in customer referral with provided email
+
+  @ui
+  Scenario: Check status after adding new referral
+    Given there is an existing referral with "omer@eresbiotech.com" email
+    And I go to the referrer list
+    When I should be referral status "New"
+
+  @ui
+  Scenario: Check status after open the referral mail
+    Given there is an existing referral with "omer@eresbiotech.com" email
+    And I go to the referrer check
+    And I go to the referrer list
+    When I should be referral status "Approved"

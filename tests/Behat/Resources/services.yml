@@ -7,7 +7,18 @@ services:
       - '@sylius.behat.current_page_resolver'
       - '@sylius.behat.notification_checker'
       - '@workouse_referral_marketing_plugin.page.shop.reference_new'
+      - '@workouse_referral_marketing_plugin.page.shop.reference_index'
+      - '@workouse_referral_marketing_plugin.page.shop.reference_check'
+      - '@doctrine.orm.default_entity_manager'
 
   workouse_referral_marketing_plugin.page.shop.reference_new:
     class: Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceNewPage
+    parent: sylius.behat.symfony_page
+
+  workouse_referral_marketing_plugin.page.shop.reference_index:
+    class: Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceIndexPage
+    parent: sylius.behat.symfony_page
+
+  workouse_referral_marketing_plugin.page.shop.reference_check:
+    class: Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceCheckPage
     parent: sylius.behat.symfony_page

@@ -5,13 +5,17 @@ declare(strict_types=1);
 namespace Tests\Workouse\ReferralMarketingPlugin\Behat\Context\Ui\Shop;
 
 use Behat\Behat\Context\Context;
+use Doctrine\ORM\EntityManager;
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPageInterface;
 use Sylius\Behat\NotificationType;
 use Sylius\Behat\Service\NotificationCheckerInterface;
 use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Behat\Service\SharedStorageInterface;
+use Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceCheckPage;
+use Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceIndexPage;
 use Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceNewPage;
 use Webmozart\Assert\Assert;
+use Workouse\ReferralMarketingPlugin\Entity\Reference;
 
 final class ReferenceContext implements Context
 {
@@ -27,17 +31,32 @@ final class ReferenceContext implements Context
     /** @var ReferenceNewPage */
     private $createPage;
 
+    /** @var ReferenceIndexPage */
+    private $indexPage;
+
+    /** @var ReferenceCheckPage */
+    private $checkPage;
+
+    /** @var EntityManager */
+    private $entityManager;
+
     public function __construct(
         SharedStorageInterface $sharedStorage,
         CurrentPageResolverInterface $currentPageResolver,
         NotificationCheckerInterface $notificationChecker,
-        ReferenceNewPage $referenceNewPage
+        ReferenceNewPage $referenceNewPage,
+        ReferenceIndexPage $referenceIndexPage,
+        ReferenceCheckPage $referenceCheckPage,
+        EntityManager $entityManager
     )
     {
         $this->sharedStorage = $sharedStorage;
         $this->currentPageResolver = $currentPageResolver;
         $this->notificationChecker = $notificationChecker;
         $this->createPage = $referenceNewPage;
+        $this->indexPage = $referenceIndexPage;
+        $this->checkPage = $referenceCheckPage;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -134,6 +153,32 @@ final class ReferenceContext implements Context
         $this->iFillTheReferrerNameWith($email);
         $this->iFillTheReferrerEmailWith($email);
         $this->iAddIt();
+    }
+
+    /**
+     * @When I go to the referrer list
+     */
+    public function iOpenInviteeMail()
+    {
+        $this->indexPage->open();
+    }
+
+    /**
+     * @When I should be referral status :status
+     */
+    public function foo($status)
+    {
+        Assert::same($this->indexPage->getStatus(), $status);
+    }
+
+    /**
+     * @When I go to the referrer check
+     */
+    public function bar()
+    {
+        $this->checkPage->open([
+            'hash' => $this->entityManager->getRepository(Reference::class)->findAll()[0]->getHash()
+        ]);
     }
 
     private function resolveCurrentPage(): SymfonyPageInterface
