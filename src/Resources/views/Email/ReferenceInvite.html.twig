@@ -1,11 +1,11 @@
 {% block subject %}
-    {{ user.fistName }} {{ user.lastName }} has sent you a gift!
+    {% if user.fistName is defined and user.lastName is defined %}{{ user.fistName }} {{ user.lastName }}{% else %}Your friend{% endif %} has sent you a gift!
 {% endblock %}
 
 {% block body %}
     Hi {{ name }},
     <br>
-    Your friend {{ user.fistName }} {{ user.lastName }} has sent you a gift!
+    Your friend {% if user.fistName is defined and user.lastName is defined %} {{ user.fistName }} {{ user.lastName }}{% endif %}  has sent you a gift!
     <img src="{{ absolute_url(path('workouse_referral_marketing_check', { 'hash': hash, '_format': 'gif' })) }}"
          alt="">
 {% endblock %}
