@@ -8,7 +8,8 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class ReferenceEvent extends Event
 {
-    public const NAME = 'reference.post';
+    public const REFERRER_POST = 'referrer.post';
+    public const INVITEE_POST = 'invitee.post';
 
     protected $reference;
 

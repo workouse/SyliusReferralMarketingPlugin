@@ -60,20 +60,8 @@ class PromotionService implements PromotionInterface
         $this->inviteePromotionCode = $inviteePromotionCode;
     }
 
-    public function execute(Reference $reference)
+    public function referrerExecute(Reference $reference)
     {
-        $inviteePromotion = $this->promotionRepository->findOneBy([
-            'code' => $this->inviteePromotionCode
-        ]);
-
-        if ($inviteePromotion) {
-            /** @var PromotionCouponGeneratorInstructionInterface $instruction */
-            $instruction = new PromotionCouponGeneratorInstruction();
-            $instruction->setAmount(1);
-            $instruction->setCustomer($reference->getInvitee());
-            $this->couponGenerator->generate($inviteePromotion, $instruction);
-        }
-
         $referrerPromotion = $this->promotionRepository->findOneBy([
             'code' => $this->referrerPromotionCode
         ]);
@@ -92,12 +80,50 @@ class PromotionService implements PromotionInterface
             ]));
             $this->couponGenerator->generate($referrerPromotion, $instruction);
         }
+    }
 
+    public function inviteeExecute(Reference $reference)
+    {
+        $inviteePromotion = $this->promotionRepository->findOneBy([
+            'code' => $this->inviteePromotionCode
+        ]);
+
+        if ($inviteePromotion) {
+            /** @var PromotionCouponGeneratorInstructionInterface $instruction */
+            $instruction = new PromotionCouponGeneratorInstruction();
+            $instruction->setAmount(1);
+            $instruction->setCustomer($reference->getInvitee());
+            $this->couponGenerator->generate($inviteePromotion, $instruction);
+        }
     }
 
     public function createHash($inviteeEmail, $referrerEmail)
     {
         return sha1(uniqid() . '-' . $inviteeEmail . '-' . $referrerEmail);
+    }
+
+    public function inviteeUserAfterExecute(Customer $customer)
+    {
+        $referrer = $this->entityManager->getRepository(Reference::class)->findOneBy([
+            'referrerEmail' => $customer->getEmail(),
+            'status' => false
+        ]);
+
+        if ($referrer) {
+            $inviteePromotion = $this->promotionRepository->findOneBy([
+                'code' => $this->inviteePromotionCode
+            ]);
+
+            if ($inviteePromotion) {
+                /** @var PromotionCouponGeneratorInstructionInterface $instruction */
+                $instruction = new PromotionCouponGeneratorInstruction();
+                $instruction->setAmount(1);
+                $instruction->setCustomer($customer);
+                $this->couponGenerator->generate($inviteePromotion, $instruction);
+            }
+            $referrer->setStatus(true);
+            $this->entityManager->flush();
+        }
     }
 
 }

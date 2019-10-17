@@ -48,7 +48,9 @@ services:
       - '@service_container'
       - '%workouse_referral_marketing.service%'
     tags:
-      - { name: 'kernel.event_listener', event: 'reference.post', method: 'completeReferenceAfter' }
+      - { name: 'kernel.event_listener', event: 'referrer.post', method: 'completeReferenceAfter' }
+      - { name: 'kernel.event_listener', event: 'invitee.post', method: 'completeInviteeAfter' }
+      - { name: 'kernel.event_listener', event: 'sylius.customer.post_register', method: 'referrerUserRegistration' }
 
   workouse_referral_marketing_plugin.unique_referrer_validator:
     class: Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrerValidator

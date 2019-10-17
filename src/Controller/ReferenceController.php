@@ -50,6 +50,10 @@ class ReferenceController extends AbstractController
                 'user' => $this->getUser()->getCustomer()
             ]);
 
+            $event = new ReferenceEvent($referance);
+            $dispatcher = $this->get('event_dispatcher');
+            $dispatcher->dispatch($event, ReferenceEvent::INVITEE_POST);
+
             /** @var FlashBagInterface $flashBag */
             $flashBag = $request->getSession()->getBag('flashes');
             $flashBag->add('success', 'workouse_referral_marketing_plugin.referrer.added');
@@ -64,6 +68,7 @@ class ReferenceController extends AbstractController
 
     public function checkAction($hash, $_format)
     {
+        /** @var Reference $referrer */
         $referrer = $this->getDoctrine()->getRepository(Reference::class)->findOneBy([
             'hash' => $hash,
             'status' => false
@@ -75,7 +80,7 @@ class ReferenceController extends AbstractController
 
             $event = new ReferenceEvent($referrer);
             $dispatcher = $this->get('event_dispatcher');
-            $dispatcher->dispatch($event, ReferenceEvent::NAME);
+            $dispatcher->dispatch($event, ReferenceEvent::REFERRER_POST);
 
         }
 
