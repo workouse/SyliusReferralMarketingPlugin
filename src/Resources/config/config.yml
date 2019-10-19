@@ -3,3 +3,11 @@ sylius_mailer:
     reference_invite:
       subject: "Reference Invite"
       template: "@WorkouseReferralMarketingPlugin/Email/ReferenceInvite.html.twig"
+
+sylius_resource:
+  resources:
+    workouse_referral_marketing_plugin.reference:
+      driver: doctrine/orm
+      classes:
+        model: Workouse\ReferralMarketingPlugin\Entity\Reference
+        repository: Workouse\ReferralMarketingPlugin\Repository\ReferenceRepository

@@ -1,0 +1,40 @@
+<div class="ui grid">
+    <div class="center aligned doubling four column row">
+        <div class="column">
+            <div class="ui red segment">
+                <div class="ui small statistic">
+                    <div id="total-references" class="value" style="padding-bottom: 10px;">
+                        {{ statistics.numberOfTotalReferences }}
+                    </div>
+                    <div class="label">
+                        {{ 'workouse_referral_marketing_plugin.ui.invitations_total'|trans }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui yellow segment">
+                <div class="ui small statistic">
+                    <div id="accepted-references" class="value" style="padding-bottom: 10px;">
+                        {{ statistics.numberOfAcceptedReferences }}
+                    </div>
+                    <div class="label">
+                        {{ 'workouse_referral_marketing_plugin.ui.invitations_accepted'|trans }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui blue segment">
+                <div class="ui small statistic">
+                    <div id="rejected-references" class="value" style="padding-bottom: 10px;">
+                        {{ statistics.numberOfRejectedReferences }}
+                    </div>
+                    <div class="label">
+                        {{ 'workouse_referral_marketing_plugin.ui.invitations_rejected'|trans }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

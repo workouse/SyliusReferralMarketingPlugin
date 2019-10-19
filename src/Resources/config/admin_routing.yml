@@ -1,1 +1,4 @@
-# Define your own admin routes here
+workouse_referral_marketing_admin_dashboard:
+  path: /referral
+  defaults:
+    _controller: workouse_referral_marketing_plugin.controller.admin.dashboard:indexAction

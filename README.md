@@ -41,7 +41,7 @@ Import routing in your `config/routes.yaml` file:
 ...
 
 workouse_referral_marketing_plugin:
-    resource: "@WorkouseReferralMarketingPlugin/Resources/config/shop_routing.yml"
+    resource: "@WorkouseReferralMarketingPlugin/Resources/config/routing.yml"
 ```
 
 Extend entity

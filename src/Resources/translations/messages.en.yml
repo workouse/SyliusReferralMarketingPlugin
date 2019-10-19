@@ -11,6 +11,11 @@ workouse_referral_marketing_plugin:
     referral_approved: Approved
     referral_new: New
     you_have_no_referral_defined: You have no referral defined
+    dashboard: Referral Dashboard
+    referral_of_your_store: Referral of your store
+    invitations_total: Invitations Total
+    invitations_accepted: Invitations Accepted
+    invitations_rejected: Invitations Rejected
   form:
     referrer_name: Referrer Name
     referrer_email: Referrer Email

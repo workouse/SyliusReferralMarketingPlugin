@@ -1,9 +1,2 @@
-acme_sylius_example_shop:
-    resource: "@WorkouseReferralMarketingPlugin/Resources/config/shop_routing.yml"
-    prefix: /{_locale}
-    requirements:
-        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
-
-acme_sylius_example_admin:
-    resource: "@WorkouseReferralMarketingPlugin/Resources/config/admin_routing.yml"
-    prefix: /admin
+workouse_referral_marketing_plugin:
+    resource: "@WorkouseReferralMarketingPlugin/Resources/config/routing.yml"

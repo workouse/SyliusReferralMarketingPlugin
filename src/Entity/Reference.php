@@ -4,6 +4,7 @@
 namespace Workouse\ReferralMarketingPlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Resource\Model\ResourceInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrer;
 
@@ -16,7 +17,7 @@ use Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrer;
  * )
  * @UniqueReferrer()
  */
-class Reference
+class Reference implements ResourceInterface
 {
     /**
      * @ORM\Id()

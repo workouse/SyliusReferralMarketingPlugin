@@ -60,3 +60,19 @@ services:
     tags:
         - { name: validator.constraint_validator, alias: 'unique_referrer' }
 
+  workouse_referral_marketing_plugin.reference.statistics_provider:
+    class: Workouse\ReferralMarketingPlugin\Provider\ReferenceStatisticsProvider
+    arguments:
+      - '@workouse_referral_marketing_plugin.repository.reference'
+
+  workouse_referral_marketing_plugin.controller.admin.dashboard:
+    class: Workouse\ReferralMarketingPlugin\Controller\DashboardController
+    public: true
+    arguments:
+      - '@templating'
+      - '@workouse_referral_marketing_plugin.reference.statistics_provider'
+
+  workouse_referral_marketing_plugin.listener.admin.menu_builder:
+    class: Workouse\ReferralMarketingPlugin\Menu\AdminMenuListener
+    tags:
+      - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
