@@ -95,7 +95,7 @@ class PromotionService implements PromotionInterface
     public function inviteeUserAfterExecute(Customer $customer)
     {
         $referrer = $this->entityManager->getRepository(Reference::class)->findOneBy([
-            'referrerEmail' => $customer->getEmail(),
+            'referrer' => $customer,
             'status' => false
         ]);
 
