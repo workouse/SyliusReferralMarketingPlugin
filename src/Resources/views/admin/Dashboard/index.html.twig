@@ -7,4 +7,10 @@
     {% include '@WorkouseReferralMarketingPlugin/admin/Dashboard/_header.html.twig' %}
 
     {% include '@WorkouseReferralMarketingPlugin/admin/Dashboard/_statistics.html.twig' %}
+
+    <div class="ui one column stackable grid">
+        <div class="column">
+            {{ render(url('workouse_referral_marketing_admin_partial_customer_latest', {'count': 5})) }}
+        </div>
+    </div>
 {% endblock %}

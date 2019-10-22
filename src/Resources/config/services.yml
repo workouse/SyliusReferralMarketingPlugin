@@ -71,6 +71,7 @@ services:
     arguments:
       - '@templating'
       - '@workouse_referral_marketing_plugin.reference.statistics_provider'
+      - '@workouse_referral_marketing_plugin.repository.reference'
 
   workouse_referral_marketing_plugin.listener.admin.menu_builder:
     class: Workouse\ReferralMarketingPlugin\Menu\AdminMenuListener

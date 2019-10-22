@@ -2,3 +2,8 @@ workouse_referral_marketing_admin_dashboard:
   path: /referral
   defaults:
     _controller: workouse_referral_marketing_plugin.controller.admin.dashboard:indexAction
+
+workouse_referral_marketing_admin_partial_customer_latest:
+  path: /_partial/referral/customers/latest/{count}
+  defaults:
+    _controller: workouse_referral_marketing_plugin.controller.admin.dashboard:customerIndexAction

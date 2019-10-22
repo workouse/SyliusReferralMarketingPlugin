@@ -24,4 +24,14 @@ class ReferenceRepository extends EntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
+
+    public function countRegisterAfterReceivingAnReferences(): int
+    {
+        return (int)$this->createQueryBuilder('r')
+            ->select('COUNT(r.id)')
+            ->innerJoin('Sylius\Component\Customer\Model\Customer', 'c', 'WITH', 'r.referrer = c.id')
+            ->innerJoin('Sylius\Component\Core\Model\ShopUser', 'u', 'WITH', 'c.id = u.customer')
+            ->getQuery()
+            ->getResult();
+    }
 }

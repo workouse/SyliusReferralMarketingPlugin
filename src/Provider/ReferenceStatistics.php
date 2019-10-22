@@ -15,11 +15,15 @@ class ReferenceStatistics
     /** @var int */
     private $numberOfRejectedReferences;
 
-    public function __construct(int $numberOfTotalReferences, int $numberOfAcceptedReferences, int $numberOfRejectedReferences)
+    /** @var int */
+    private $numberOfRegisterAfterReceivingAnReferences;
+
+    public function __construct(int $numberOfTotalReferences, int $numberOfAcceptedReferences, int $numberOfRejectedReferences, int $numberOfRegisterAfterReceivingAnReferences)
     {
         $this->numberOfTotalReferences = $numberOfTotalReferences;
         $this->numberOfAcceptedReferences = $numberOfAcceptedReferences;
         $this->numberOfRejectedReferences = $numberOfRejectedReferences;
+        $this->numberOfRegisterAfterReceivingAnReferences = $numberOfRegisterAfterReceivingAnReferences;
     }
 
     public function getNumberOfTotalReferences(): int
@@ -35,5 +39,10 @@ class ReferenceStatistics
     public function getNumberOfRejectedReferences(): int
     {
         return $this->numberOfRejectedReferences;
+    }
+
+    public function getNumberOfRegisterAfterReceivingAnReferences(): int
+    {
+        return $this->numberOfRegisterAfterReceivingAnReferences;
     }
 }

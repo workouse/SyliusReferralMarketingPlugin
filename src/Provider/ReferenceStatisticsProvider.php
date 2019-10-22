@@ -20,7 +20,8 @@ class ReferenceStatisticsProvider
         return new ReferenceStatistics(
             $this->referenceRepository->countReferences(),
             $this->referenceRepository->countAcceptedReferences(),
-            $this->referenceRepository->countReferences() - $this->referenceRepository->countAcceptedReferences()
+            $this->referenceRepository->countReferences() - $this->referenceRepository->countAcceptedReferences(),
+            $this->referenceRepository->countRegisterAfterReceivingAnReferences()
         );
     }
 }

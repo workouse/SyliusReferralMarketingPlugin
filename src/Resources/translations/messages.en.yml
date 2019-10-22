@@ -16,6 +16,10 @@ workouse_referral_marketing_plugin:
     invitations_total: Invitations Total
     invitations_accepted: Invitations Accepted
     invitations_rejected: Invitations Rejected
+    new_references: New references
+    register_after_receiving_an_references: Register After Receiving an References
+    accepted: Accepted
+    waiting: Waiting
   form:
     referrer_name: Referrer Name
     referrer_email: Referrer Email
