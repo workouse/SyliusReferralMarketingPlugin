@@ -76,3 +76,10 @@ services:
     class: Workouse\ReferralMarketingPlugin\Menu\AdminMenuListener
     tags:
       - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+
+  workouse_referral_marketing_plugin.controller.shop.reference:
+    class: Workouse\ReferralMarketingPlugin\Controller\ReferenceController
+    public: true
+    arguments:
+      - '@sylius.canonicalizer'
+      - '@sylius.shop_user.token_generator.email_verification'

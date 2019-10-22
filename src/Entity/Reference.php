@@ -5,16 +5,11 @@ namespace Workouse\ReferralMarketingPlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrer;
 
 /**
  * @ORM\Entity()
  * @ORM\Table(name="workouse_referral_marketing_reference")
- * @UniqueEntity(
- *     fields={"invitee", "referrerEmail"},
- *     errorPath="referrerEmail"
- * )
  * @UniqueReferrer()
  */
 class Reference implements ResourceInterface
@@ -33,14 +28,15 @@ class Reference implements ResourceInterface
     protected $invitee;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne("Sylius\Component\Customer\Model\CustomerInterface")
+     * @ORM\JoinColumn(name="referrer_id", referencedColumnName="id")
      */
-    protected $referrerName;
+    protected $referrer;
 
     /**
      * @ORM\Column(type="string")
      */
-    protected $referrerEmail;
+    protected $referrerName;
 
     /**
      * @ORM\Column(type="string")
@@ -67,6 +63,16 @@ class Reference implements ResourceInterface
         $this->invitee = $invitee;
     }
 
+    public function getReferrer()
+    {
+        return $this->referrer;
+    }
+
+    public function setReferrer($referrer): void
+    {
+        $this->referrer = $referrer;
+    }
+
     public function getReferrerName()
     {
         return $this->referrerName;
@@ -75,16 +81,6 @@ class Reference implements ResourceInterface
     public function setReferrerName($referrerName): void
     {
         $this->referrerName = $referrerName;
-    }
-
-    public function getReferrerEmail()
-    {
-        return $this->referrerEmail;
-    }
-
-    public function setReferrerEmail($referrerEmail): void
-    {
-        $this->referrerEmail = $referrerEmail;
     }
 
     public function getHash()

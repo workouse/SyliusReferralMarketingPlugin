@@ -113,7 +113,7 @@ final class ReferenceContext implements Context
     public function iShouldBeNotifiedThatThereIsAlreadyAnExistingReferralWithEmail(): void
     {
         Assert::true($this->resolveCurrentPage()->containsErrorWithMessage(
-            'This value is already used.',
+            'This user is registered in the system',
             false
         ));
     }

@@ -1,17 +1,17 @@
 workouse_referral_marketing_index:
   path: /account/referral-marketing/
   defaults:
-    _controller: WorkouseReferralMarketingPlugin:Reference:index
+    _controller: workouse_referral_marketing_plugin.controller.shop.reference:indexAction
 
 workouse_referral_marketing_new:
   path: /account/referral-marketing/add
   defaults:
-    _controller: WorkouseReferralMarketingPlugin:Reference:new
+    _controller: workouse_referral_marketing_plugin.controller.shop.reference:newAction
 
 workouse_referral_marketing_check:
   path: /referral-marketing/{hash}.{_format}
   defaults:
-    _controller: WorkouseReferralMarketingPlugin:Reference:check
+    _controller: workouse_referral_marketing_plugin.controller.shop.reference:checkAction
   format: gif
   requirements:
     _format: gif|png|jpg|jpeg

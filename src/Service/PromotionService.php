@@ -67,17 +67,12 @@ class PromotionService implements PromotionInterface
         ]);
 
         if ($referrerPromotion) {
-            $customer = new Customer();
-            $customer->setEmail($reference->getReferrerEmail());
-            $customer->setEmailCanonical($this->canonicalizer->canonicalize($reference->getReferrerEmail()));
-            $this->entityManager->persist($customer);
-            $this->entityManager->flush();
+            /** @var CustomerInterface $referrer */
+            $referrer = $reference->getReferrer();
 
             /** @var PromotionCouponGeneratorInstructionInterface $instruction */
             $instruction = new PromotionCouponGeneratorInstruction();
-            $instruction->setCustomer($this->customerRuleRepository->findOneBy([
-                'id' => $customer->getId()
-            ]));
+            $instruction->setCustomer($referrer);
             $this->couponGenerator->generate($referrerPromotion, $instruction);
         }
     }
@@ -95,11 +90,6 @@ class PromotionService implements PromotionInterface
             $instruction->setCustomer($reference->getInvitee());
             $this->couponGenerator->generate($inviteePromotion, $instruction);
         }
-    }
-
-    public function createHash($inviteeEmail, $referrerEmail)
-    {
-        return sha1(uniqid() . '-' . $inviteeEmail . '-' . $referrerEmail);
     }
 
     public function inviteeUserAfterExecute(Customer $customer)

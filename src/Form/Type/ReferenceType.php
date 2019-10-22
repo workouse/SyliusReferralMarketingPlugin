@@ -26,7 +26,7 @@ class ReferenceType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('referrerEmail', EmailType::class, [
+            ->add('referrer', EmailType::class, [
                 'label' => 'workouse_referral_marketing_plugin.form.referrer_email',
                 'constraints' => [
                     new NotBlank([

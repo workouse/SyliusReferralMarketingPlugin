@@ -30,7 +30,7 @@
                 {% for reference in references %}
                     <tr>
                         <td>{{ reference.referrerName }}</td>
-                        <td>{{ reference.referrerEmail }}</td>
+                        <td>{{ reference.referrer.email }}</td>
                         <td>
                             {% if reference.status %}
                                 <span class="ui green label">

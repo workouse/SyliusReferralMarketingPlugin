@@ -3,6 +3,7 @@
 
 namespace Workouse\ReferralMarketingPlugin\Controller;
 
+use Sylius\Component\User\Canonicalizer\CanonicalizerInterface;
 use Workouse\ReferralMarketingPlugin\Entity\Reference;
 use Workouse\ReferralMarketingPlugin\Event\ReferenceEvent;
 use Workouse\ReferralMarketingPlugin\Form\Type\ReferenceType;
@@ -11,9 +12,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Sylius\Component\User\Security\Generator\GeneratorInterface;
 
 class ReferenceController extends AbstractController
 {
+    /** @var CanonicalizerInterface */
+    private $canonicalizer;
+
+    /** @var GeneratorInterface */
+    private $tokenGenerator;
+
+    public function __construct(CanonicalizerInterface $canonicalizer, GeneratorInterface $tokenGenerator)
+    {
+        $this->canonicalizer = $canonicalizer;
+        $this->tokenGenerator = $tokenGenerator;
+    }
+
     public function indexAction(): Response
     {
         $references = $this->getDoctrine()->getRepository(Reference::class)->findBy([
@@ -27,30 +41,36 @@ class ReferenceController extends AbstractController
 
     public function newAction(Request $request): Response
     {
-        $referance = new Reference();
-        $referance->setInvitee($this->getUser()->getCustomer());
+        $reference = new Reference();
+        $reference->setInvitee($this->getUser()->getCustomer());
 
-        $form = $this->createForm(ReferenceType::class, $referance);
+        $form = $this->createForm(ReferenceType::class, $reference);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $referance = $form->getData();
+            $reference = $form->getData();
 
-            $promotionService = $this->get('workouse_referral_marketing_plugin.promotion');
-
-            $referance->setHash($promotionService->createHash($this->getUser()->getCustomer()->getEmail(), $referance->getReferrerEmail()));
             $em = $this->getDoctrine()->getManager();
-            $em->persist($referance);
+            $customer = $this->get('sylius.factory.customer')->createNew();
+            $customer->setEmail($reference->getReferrer());
+            $customer->setEmailCanonical($this->canonicalizer->canonicalize($reference->getReferrer()));
+            $em->persist($customer);
             $em->flush();
 
-            $this->get('sylius.email_sender')->send('reference_invite', [$referance->getReferrerEmail()], [
-                'name' => $referance->getReferrerName(),
-                'email' => $referance->getReferrerEmail(),
-                'hash' => $referance->getHash(),
-                'user' => $this->getUser()->getCustomer()
+            $reference->setReferrer($customer);
+            $reference->setHash($this->tokenGenerator->generate());
+            $em->persist($reference);
+
+            $em->flush();
+
+            $this->get('sylius.email_sender')->send('reference_invite', [$reference->getReferrer()->getEmail()], [
+                'name' => $reference->getReferrerName(),
+                'email' => $reference->getReferrer()->getEmail(),
+                'hash' => $reference->getHash(),
+                'user' => $reference->getInvitee()
             ]);
 
-            $event = new ReferenceEvent($referance);
+            $event = new ReferenceEvent($reference);
             $dispatcher = $this->get('event_dispatcher');
             $dispatcher->dispatch($event, ReferenceEvent::INVITEE_POST);
 

@@ -26,12 +26,12 @@ class UniqueReferrerValidator extends ConstraintValidator
     public function validate($object, Constraint $constraint)
     {
         $referrer = $this->em->getRepository(Customer::class)->findOneBy([
-            'email' => $object->getReferrerEmail()
+            'email' => $object->getReferrer()
         ]);
 
         if ($referrer) {
             $this->context->buildViolation($this->translator->trans($constraint->message))
-                ->atPath('referrerEmail')
+                ->atPath('referrer')
                 ->addViolation();
         }
     }
