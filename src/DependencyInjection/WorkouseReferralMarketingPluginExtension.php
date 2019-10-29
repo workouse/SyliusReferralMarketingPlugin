@@ -21,16 +21,13 @@ final class WorkouseReferralMarketingPluginExtension extends Extension
 
         $loader->load('services.yml');
 
-
         foreach ($config as $key => $value) {
             $container->setParameter('workouse_referral_marketing.' . $key, $value);
         }
     }
 
-
     public function getAlias()
     {
         return 'workouse_referral_marketing';
     }
-
 }

@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Entity;
 
-use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Sylius\Component\Customer\Model\Customer;
 
 trait PromotionCouponTrait
@@ -24,5 +25,4 @@ trait PromotionCouponTrait
     {
         $this->customer = $customer;
     }
-
 }

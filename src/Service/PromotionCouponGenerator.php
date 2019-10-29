@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Service;
 
@@ -33,8 +34,7 @@ final class PromotionCouponGenerator implements PromotionCouponGeneratorInterfac
         PromotionCouponRepositoryInterface $couponRepository,
         ObjectManager $objectManager,
         GenerationPolicyInterface $generationPolicy
-    )
-    {
+    ) {
         $this->couponFactory = $couponFactory;
         $this->couponRepository = $couponRepository;
         $this->objectManager = $objectManager;
@@ -83,8 +83,7 @@ final class PromotionCouponGenerator implements PromotionCouponGeneratorInterfac
         array $generatedCoupons,
         ?string $prefix,
         ?string $suffix
-    ): string
-    {
+    ): string {
         Assert::nullOrRange($codeLength, 1, 40, 'Invalid %d code length should be between %d and %d');
 
         do {

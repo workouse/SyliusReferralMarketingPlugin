@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Entity;
 
@@ -102,5 +103,4 @@ class Reference implements ResourceInterface
     {
         $this->status = $status;
     }
-
 }

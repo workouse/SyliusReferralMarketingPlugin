@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Repository;
 
@@ -9,7 +10,7 @@ class ReferenceRepository extends EntityRepository
 {
     public function countReferences(): int
     {
-        return (int)$this->createQueryBuilder('o')
+        return (int) $this->createQueryBuilder('o')
             ->select('COUNT(o.id)')
             ->getQuery()
             ->getSingleScalarResult();
@@ -17,7 +18,7 @@ class ReferenceRepository extends EntityRepository
 
     public function countAcceptedReferences(): int
     {
-        return (int)$this->createQueryBuilder('o')
+        return (int) $this->createQueryBuilder('o')
             ->select('COUNT(o.id)')
             ->where('o.status = :status')
             ->setParameter('status', true)
@@ -27,7 +28,7 @@ class ReferenceRepository extends EntityRepository
 
     public function countRegisterAfterReceivingAnReferences(): int
     {
-        return (int)$this->createQueryBuilder('r')
+        return (int) $this->createQueryBuilder('r')
             ->select('COUNT(r.id)')
             ->innerJoin('Sylius\Component\Customer\Model\Customer', 'c', 'WITH', 'r.referrer = c.id')
             ->innerJoin('Sylius\Component\Core\Model\ShopUser', 'u', 'WITH', 'c.id = u.customer')

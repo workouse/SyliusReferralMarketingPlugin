@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Service;
 
 use Doctrine\ORM\EntityManager;
-use Workouse\ReferralMarketingPlugin\Entity\Reference;
 use Sylius\Component\Customer\Model\Customer;
 use Sylius\Component\Customer\Model\CustomerInterface;
 use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInstructionInterface;
@@ -12,6 +12,7 @@ use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInterface;
 use Sylius\Component\Promotion\Model\PromotionRuleInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Sylius\Component\User\Canonicalizer\CanonicalizerInterface;
+use Workouse\ReferralMarketingPlugin\Entity\Reference;
 
 class PromotionService implements PromotionInterface
 {
@@ -48,8 +49,7 @@ class PromotionService implements PromotionInterface
         RepositoryInterface $promotionRepository,
         $referrerPromotionCode,
         $inviteePromotionCode
-    )
-    {
+    ) {
         $this->promotionRuleRepository = $promotionRuleRepository;
         $this->couponGenerator = $couponGenerator;
         $this->customerRuleRepository = $customerRuleRepository;
@@ -63,7 +63,7 @@ class PromotionService implements PromotionInterface
     public function referrerExecute(Reference $reference)
     {
         $referrerPromotion = $this->promotionRepository->findOneBy([
-            'code' => $this->referrerPromotionCode
+            'code' => $this->referrerPromotionCode,
         ]);
 
         if ($referrerPromotion) {
@@ -80,7 +80,7 @@ class PromotionService implements PromotionInterface
     public function inviteeExecute(Reference $reference)
     {
         $inviteePromotion = $this->promotionRepository->findOneBy([
-            'code' => $this->inviteePromotionCode
+            'code' => $this->inviteePromotionCode,
         ]);
 
         if ($inviteePromotion) {
@@ -96,12 +96,12 @@ class PromotionService implements PromotionInterface
     {
         $referrer = $this->entityManager->getRepository(Reference::class)->findOneBy([
             'referrer' => $customer,
-            'status' => false
+            'status' => false,
         ]);
 
         if ($referrer) {
             $inviteePromotion = $this->promotionRepository->findOneBy([
-                'code' => $this->inviteePromotionCode
+                'code' => $this->inviteePromotionCode,
             ]);
 
             if ($inviteePromotion) {
@@ -115,5 +115,4 @@ class PromotionService implements PromotionInterface
             $this->entityManager->flush();
         }
     }
-
 }

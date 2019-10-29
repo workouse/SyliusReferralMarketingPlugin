@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Form\Extension;
 
@@ -20,7 +21,7 @@ final class PromotionCouponTypeExtension extends AbstractTypeExtension
                 'choice_label' => function (Customer $customer) {
                     return $customer->getEmail() . ' - ' . $customer->getFirstName() . ' ' . $customer->getLastName();
                 },
-                'placeholder' => 'workouse_referral_marketing_plugin.form.promotion_coupon.please_choose'
+                'placeholder' => 'workouse_referral_marketing_plugin.form.promotion_coupon.please_choose',
             ]);
     }
 

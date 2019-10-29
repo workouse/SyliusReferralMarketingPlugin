@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Validator\Constraints;
 
@@ -26,7 +27,7 @@ class UniqueReferrerValidator extends ConstraintValidator
     public function validate($object, Constraint $constraint)
     {
         $referrer = $this->em->getRepository(Customer::class)->findOneBy([
-            'email' => $object->getReferrer()
+            'email' => $object->getReferrer(),
         ]);
 
         if ($referrer) {

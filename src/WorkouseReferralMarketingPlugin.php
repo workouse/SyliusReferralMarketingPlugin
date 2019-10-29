@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin;
 
-use Workouse\ReferralMarketingPlugin\DependencyInjection\WorkouseReferralMarketingPluginExtension;
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Workouse\ReferralMarketingPlugin\DependencyInjection\WorkouseReferralMarketingPluginExtension;
 
 final class WorkouseReferralMarketingPlugin extends Bundle
 {

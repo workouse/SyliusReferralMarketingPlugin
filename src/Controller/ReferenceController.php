@@ -1,18 +1,19 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Controller;
 
 use Sylius\Component\User\Canonicalizer\CanonicalizerInterface;
-use Workouse\ReferralMarketingPlugin\Entity\Reference;
-use Workouse\ReferralMarketingPlugin\Event\ReferenceEvent;
-use Workouse\ReferralMarketingPlugin\Form\Type\ReferenceType;
-use Workouse\ReferralMarketingPlugin\Service\TransparentPixelResponse;
+use Sylius\Component\User\Security\Generator\GeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
-use Sylius\Component\User\Security\Generator\GeneratorInterface;
+use Workouse\ReferralMarketingPlugin\Entity\Reference;
+use Workouse\ReferralMarketingPlugin\Event\ReferenceEvent;
+use Workouse\ReferralMarketingPlugin\Form\Type\ReferenceType;
+use Workouse\ReferralMarketingPlugin\Service\TransparentPixelResponse;
 
 class ReferenceController extends AbstractController
 {
@@ -31,11 +32,11 @@ class ReferenceController extends AbstractController
     public function indexAction(): Response
     {
         $references = $this->getDoctrine()->getRepository(Reference::class)->findBy([
-            'invitee' => $this->getUser()->getCustomer()
+            'invitee' => $this->getUser()->getCustomer(),
         ]);
 
         return $this->render('@WorkouseReferralMarketingPlugin/shop/index.html.twig', [
-            'references' => $references
+            'references' => $references,
         ]);
     }
 
@@ -67,7 +68,7 @@ class ReferenceController extends AbstractController
                 'name' => $reference->getReferrerName(),
                 'email' => $reference->getReferrer()->getEmail(),
                 'hash' => $reference->getHash(),
-                'user' => $reference->getInvitee()
+                'user' => $reference->getInvitee(),
             ]);
 
             $event = new ReferenceEvent($reference);
@@ -82,7 +83,7 @@ class ReferenceController extends AbstractController
         }
 
         return $this->render('@WorkouseReferralMarketingPlugin/shop/new.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 
@@ -91,7 +92,7 @@ class ReferenceController extends AbstractController
         /** @var Reference $referrer */
         $referrer = $this->getDoctrine()->getRepository(Reference::class)->findOneBy([
             'hash' => $hash,
-            'status' => false
+            'status' => false,
         ]);
 
         if ($referrer) {
@@ -101,10 +102,8 @@ class ReferenceController extends AbstractController
             $event = new ReferenceEvent($referrer);
             $dispatcher = $this->get('event_dispatcher');
             $dispatcher->dispatch($event, ReferenceEvent::REFERRER_POST);
-
         }
 
         return new TransparentPixelResponse($_format);
-
     }
 }

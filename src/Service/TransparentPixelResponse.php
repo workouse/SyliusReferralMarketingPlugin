@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Workouse\ReferralMarketingPlugin\Service;
 
@@ -9,6 +10,7 @@ class TransparentPixelResponse extends Response
 {
     /**
      * Base 64 encoded contents for 1px transparent gif and png
+     *
      * @var string
      */
     const IMAGE_CONTENT =
@@ -16,6 +18,7 @@ class TransparentPixelResponse extends Response
 
     /**
      * The response content type
+     *
      * @var string
      */
     const CONTENT_TYPE = 'gif';
