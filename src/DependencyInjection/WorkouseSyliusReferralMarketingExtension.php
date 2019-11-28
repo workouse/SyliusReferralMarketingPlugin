@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\DependencyInjection;
+namespace Workouse\SyliusReferralMarketingPlugin\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class WorkouseReferralMarketingPluginExtension extends Extension
+final class WorkouseSyliusReferralMarketingExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -28,6 +28,6 @@ final class WorkouseReferralMarketingPluginExtension extends Extension
 
     public function getAlias()
     {
-        return 'workouse_referral_marketing';
+        return 'workouse_sylius_referral_marketing';
     }
 }

@@ -1,2 +1,2 @@
 workouse_referral_marketing_plugin:
-    resource: "@WorkouseReferralMarketingPlugin/Resources/config/routing.yml"
+    resource: "@WorkouseSyliusReferralMarketingPlugin/Resources/config/routing.yml"

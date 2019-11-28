@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Service;
+namespace Workouse\SyliusReferralMarketingPlugin\Service;
 
 use Doctrine\ORM\EntityManager;
 use Sylius\Component\Customer\Model\Customer;
@@ -12,7 +12,7 @@ use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInterface;
 use Sylius\Component\Promotion\Model\PromotionRuleInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Sylius\Component\User\Canonicalizer\CanonicalizerInterface;
-use Workouse\ReferralMarketingPlugin\Entity\Reference;
+use Workouse\SyliusReferralMarketingPlugin\Entity\Reference;
 
 class PromotionService implements PromotionInterface
 {

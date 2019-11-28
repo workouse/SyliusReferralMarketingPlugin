@@ -1,6 +1,6 @@
 services:
   workouse_referral_marketing_plugin.context.ui.shop.reference:
-    class: Tests\Workouse\ReferralMarketingPlugin\Behat\Context\Ui\Shop\ReferenceContext
+    class: Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Context\Ui\Shop\ReferenceContext
     public: true
     arguments:
       - '@sylius.behat.shared_storage'
@@ -12,13 +12,13 @@ services:
       - '@doctrine.orm.default_entity_manager'
 
   workouse_referral_marketing_plugin.page.shop.reference_new:
-    class: Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceNewPage
+    class: Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Page\Shop\ReferenceNewPage
     parent: sylius.behat.symfony_page
 
   workouse_referral_marketing_plugin.page.shop.reference_index:
-    class: Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceIndexPage
+    class: Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Page\Shop\ReferenceIndexPage
     parent: sylius.behat.symfony_page
 
   workouse_referral_marketing_plugin.page.shop.reference_check:
-    class: Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceCheckPage
+    class: Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Page\Shop\ReferenceCheckPage
     parent: sylius.behat.symfony_page

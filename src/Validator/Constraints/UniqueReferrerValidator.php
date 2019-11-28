@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Validator\Constraints;
+namespace Workouse\SyliusReferralMarketingPlugin\Validator\Constraints;
 
 use Doctrine\ORM\EntityManager;
 use Sylius\Component\Customer\Model\Customer;

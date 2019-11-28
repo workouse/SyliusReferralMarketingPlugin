@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Provider;
+namespace Workouse\SyliusReferralMarketingPlugin\Provider;
 
-use Workouse\ReferralMarketingPlugin\Repository\ReferenceRepository;
+use Workouse\SyliusReferralMarketingPlugin\Repository\ReferenceRepository;
 
 class ReferenceStatisticsProvider
 {

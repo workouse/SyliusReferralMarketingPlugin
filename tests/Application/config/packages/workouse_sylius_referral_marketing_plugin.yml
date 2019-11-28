@@ -1,4 +1,4 @@
-workouse_referral_marketing:
+workouse_sylius_referral_marketing:
   service: 'workouse_referral_marketing_plugin.promotion'
   referrer_promotion_code: 'referrer_promotion'
   invitee_promotion_code: 'invitee_promotion'

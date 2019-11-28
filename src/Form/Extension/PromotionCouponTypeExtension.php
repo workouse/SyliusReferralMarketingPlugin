@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Form\Extension;
+namespace Workouse\SyliusReferralMarketingPlugin\Form\Extension;
 
 use Sylius\Bundle\PromotionBundle\Form\Type\PromotionCouponType;
 use Sylius\Component\Customer\Model\Customer;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Workouse\ReferralMarketingPlugin\Behat\Behaviour;
+namespace Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Behaviour;
 
 interface ContainsErrorInterface
 {

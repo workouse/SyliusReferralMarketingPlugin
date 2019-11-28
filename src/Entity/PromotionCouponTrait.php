@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Entity;
+namespace Workouse\SyliusReferralMarketingPlugin\Entity;
 
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;

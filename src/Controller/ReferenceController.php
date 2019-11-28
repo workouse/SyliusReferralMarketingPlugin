@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Controller;
+namespace Workouse\SyliusReferralMarketingPlugin\Controller;
 
 use Sylius\Component\User\Canonicalizer\CanonicalizerInterface;
 use Sylius\Component\User\Security\Generator\GeneratorInterface;
@@ -10,10 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
-use Workouse\ReferralMarketingPlugin\Entity\Reference;
-use Workouse\ReferralMarketingPlugin\Event\ReferenceEvent;
-use Workouse\ReferralMarketingPlugin\Form\Type\ReferenceType;
-use Workouse\ReferralMarketingPlugin\Service\TransparentPixelResponse;
+use Workouse\SyliusReferralMarketingPlugin\Entity\Reference;
+use Workouse\SyliusReferralMarketingPlugin\Event\ReferenceEvent;
+use Workouse\SyliusReferralMarketingPlugin\Form\Type\ReferenceType;
+use Workouse\SyliusReferralMarketingPlugin\Service\TransparentPixelResponse;
 
 class ReferenceController extends AbstractController
 {
@@ -35,7 +35,7 @@ class ReferenceController extends AbstractController
             'invitee' => $this->getUser()->getCustomer(),
         ]);
 
-        return $this->render('@WorkouseReferralMarketingPlugin/shop/index.html.twig', [
+        return $this->render('@WorkouseSyliusReferralMarketingPlugin/shop/index.html.twig', [
             'references' => $references,
         ]);
     }
@@ -82,7 +82,7 @@ class ReferenceController extends AbstractController
             return $this->redirectToRoute('workouse_referral_marketing_index');
         }
 
-        return $this->render('@WorkouseReferralMarketingPlugin/shop/new.html.twig', [
+        return $this->render('@WorkouseSyliusReferralMarketingPlugin/shop/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }

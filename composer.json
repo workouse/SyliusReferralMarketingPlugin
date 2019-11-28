@@ -1,5 +1,5 @@
 {
-    "name": "workouse/referral-marketing-sylius",
+    "name": "workouse/sylius-referral-marketing-plugin",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
     "description": "Referral Marketing Bundle for Sylius E-Commerce",
@@ -44,8 +44,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Workouse\\ReferralMarketingPlugin\\": "src/",
-            "Tests\\Workouse\\ReferralMarketingPlugin\\": "tests/"
+            "Workouse\\SyliusReferralMarketingPlugin\\": "src/",
+            "Tests\\Workouse\\SyliusReferralMarketingPlugin\\": "tests/"
         }
     },
     "autoload-dev": {

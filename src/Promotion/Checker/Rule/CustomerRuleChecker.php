@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Promotion\Checker\Rule;
+namespace Workouse\SyliusReferralMarketingPlugin\Promotion\Checker\Rule;
 
 use Sylius\Component\Promotion\Checker\Rule\RuleCheckerInterface;
 use Sylius\Component\Promotion\Model\PromotionSubjectInterface;

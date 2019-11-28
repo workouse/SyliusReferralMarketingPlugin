@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Form\Type\Rule;
+namespace Workouse\SyliusReferralMarketingPlugin\Form\Type\Rule;
 
 use Symfony\Component\Form\AbstractType;
 

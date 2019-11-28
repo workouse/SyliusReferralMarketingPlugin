@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Controller;
+namespace Workouse\SyliusReferralMarketingPlugin\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
-use Workouse\ReferralMarketingPlugin\Provider\ReferenceStatisticsProvider;
-use Workouse\ReferralMarketingPlugin\Repository\ReferenceRepository;
+use Workouse\SyliusReferralMarketingPlugin\Provider\ReferenceStatisticsProvider;
+use Workouse\SyliusReferralMarketingPlugin\Repository\ReferenceRepository;
 
 class DashboardController
 {
@@ -32,7 +32,7 @@ class DashboardController
         $statistics = $this->statisticsProvider->getStatistics();
 
         return $this->templatingEngine->renderResponse(
-            '@WorkouseReferralMarketingPlugin/admin/Dashboard/index.html.twig',
+            '@WorkouseSyliusReferralMarketingPlugin/admin/Dashboard/index.html.twig',
             ['statistics' => $statistics]
         );
     }
@@ -42,7 +42,7 @@ class DashboardController
         $references = $this->referenceRepository->findBy([], [], $count);
 
         return $this->templatingEngine->renderResponse(
-            '@WorkouseReferralMarketingPlugin/admin/Dashboard/_customers.html.twig',
+            '@WorkouseSyliusReferralMarketingPlugin/admin/Dashboard/_customers.html.twig',
             ['references' => $references]
         );
     }

@@ -1,24 +1,24 @@
-## referral-marketing-sylius
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/workouse/referral-marketing-sylius/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/workouse/referral-marketing-sylius/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/workouse/referral-marketing-sylius/badges/build.png?b=master)](https://scrutinizer-ci.com/g/workouse/referral-marketing-sylius/build-status/master)
+## Workouse Referral Marketing Plugin
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/workouse/sylius-referral-marketing-plugin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/workouse/sylius-referral-marketing-plugin/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/workouse/sylius-referral-marketing-plugin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/workouse/sylius-referral-marketing-plugin/build-status/master)
 
 Referral Marketing Bundle for Sylius E-Commerce. Provides customers to send invitations to each other by e-mail and win coupons
 
 Screenshots:
-<img src="https://github.com/workouse/referral-marketing-sylius/blob/master/screenshot_1.png" alt="Referral Marketing Bundle" width="100%">
-<img src="https://github.com/workouse/referral-marketing-sylius/blob/master/screenshot_2.png" alt="Referral Marketing Bundle Add Reference" width="100%">
-<img src="https://github.com/workouse/referral-marketing-sylius/blob/master/screenshot_3.png" alt="Referral Marketing Bundle Referance invite mail" width="100%">
+<img src="https://github.com/workouse/sylius-referral-marketing-plugin/blob/master/screenshot_1.png" alt="Referral Marketing Bundle" width="100%">
+<img src="https://github.com/workouse/sylius-referral-marketing-plugin/blob/master/screenshot_2.png" alt="Referral Marketing Bundle Add Reference" width="100%">
+<img src="https://github.com/workouse/sylius-referral-marketing-plugin/blob/master/screenshot_3.png" alt="Referral Marketing Bundle Referance invite mail" width="100%">
 
 ## Installation
 ```bash
-$ composer require workouse/referral-marketing-sylius
+$ composer require workouse/sylius-referral-marketing-plugin
 ```
 Add plugin dependencies to your `config/bundles.php` file:
 ```php
 return [
     ...
 
-    Workouse\ReferralMarketingPlugin\WorkouseReferralMarketingPlugin::class => ['all' => true],
+    Workouse\SyliusReferralMarketingPlugin\WorkouseReferralMarketingPlugin::class => ['all' => true],
 ];
 ```
 
@@ -30,7 +30,7 @@ Import required config in your `config/packages/_sylius.yaml` file:
 imports:
     ...
     
-    - { resource: "@WorkouseReferralMarketingPlugin/Resources/config/config.yml" }
+    - { resource: "@WorkouseSyliusReferralMarketingPlugin/Resources/config/config.yml" }
 ```
 
 Import routing in your `config/routes.yaml` file:
@@ -41,7 +41,7 @@ Import routing in your `config/routes.yaml` file:
 ...
 
 workouse_referral_marketing_plugin:
-    resource: "@WorkouseReferralMarketingPlugin/Resources/config/routing.yml"
+    resource: "@WorkouseSyliusReferralMarketingPlugin/Resources/config/routing.yml"
 ```
 
 Extend entity
@@ -53,7 +53,7 @@ declare(strict_types=1);
 namespace App\Entity\Promotion;
 
 use Doctrine\ORM\Mapping as ORM;
-use Workouse\ReferralMarketingPlugin\Entity\PromotionCouponTrait;
+use Workouse\SyliusReferralMarketingPlugin\Entity\PromotionCouponTrait;
 use Sylius\Component\Core\Model\PromotionCoupon as BasePromotionCoupon;
 
 /**

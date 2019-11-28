@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Repository;
+namespace Workouse\SyliusReferralMarketingPlugin\Repository;
 
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 

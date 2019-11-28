@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Entity;
+namespace Workouse\SyliusReferralMarketingPlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrer;
+use Workouse\SyliusReferralMarketingPlugin\Validator\Constraints\UniqueReferrer;
 
 /**
  * @ORM\Entity()

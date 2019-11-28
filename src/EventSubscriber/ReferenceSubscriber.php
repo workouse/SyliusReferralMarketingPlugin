@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\EventSubscriber;
+namespace Workouse\SyliusReferralMarketingPlugin\EventSubscriber;
 
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Workouse\ReferralMarketingPlugin\Event\ReferenceEvent;
-use Workouse\ReferralMarketingPlugin\Service\PromotionInterface;
+use Workouse\SyliusReferralMarketingPlugin\Event\ReferenceEvent;
+use Workouse\SyliusReferralMarketingPlugin\Service\PromotionInterface;
 
 class ReferenceSubscriber
 {

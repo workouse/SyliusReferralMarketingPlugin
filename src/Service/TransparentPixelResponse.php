@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Service;
+namespace Workouse\SyliusReferralMarketingPlugin\Service;
 
 use Symfony\Component\HttpFoundation\Response;
 

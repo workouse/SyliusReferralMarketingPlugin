@@ -1,6 +1,6 @@
 services:
   workouse_referral_marketing_plugin.promotion:
-    class: Workouse\ReferralMarketingPlugin\Service\PromotionService
+    class: Workouse\SyliusReferralMarketingPlugin\Service\PromotionService
     public: true
     arguments:
       - '@sylius.repository.promotion_rule'
@@ -13,29 +13,29 @@ services:
       - '%workouse_referral_marketing.invitee_promotion_code%'
 
   workouse_referral_marketing_plugin.listener.shop.menu_builder:
-    class: Workouse\ReferralMarketingPlugin\Menu\AccountMenuListener
+    class: Workouse\SyliusReferralMarketingPlugin\Menu\AccountMenuListener
     tags:
       - { name: kernel.event_listener, event: sylius.menu.shop.account, method: addAccountMenuItems }
 
   workouse_referral_marketing_plugin.form.extension.type.api_order_promotion_coupon:
-    class: Workouse\ReferralMarketingPlugin\Form\Extension\PromotionCouponTypeExtension
+    class: Workouse\SyliusReferralMarketingPlugin\Form\Extension\PromotionCouponTypeExtension
     tags:
       - { name: form.type_extension, extended_type: Sylius\Bundle\PromotionBundle\Form\Type\PromotionCouponType }
 
   workouse_referral_marketing_plugin.form.type.promotion_rule.customer_configuration:
-    class: Workouse\ReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType
+    class: Workouse\SyliusReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType
     tags:
       - { name: form.type }
 
   workouse_referral_marketing_plugin.promotion_rule_checker.customer:
-    class: Workouse\ReferralMarketingPlugin\Promotion\Checker\Rule\CustomerRuleChecker
+    class: Workouse\SyliusReferralMarketingPlugin\Promotion\Checker\Rule\CustomerRuleChecker
     arguments:
       - '@security.helper'
     tags:
-      - { name: sylius.promotion_rule_checker, type: customer, form_type: Workouse\ReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType, label: customer }
+      - { name: sylius.promotion_rule_checker, type: customer, form_type: Workouse\SyliusReferralMarketingPlugin\Form\Type\Rule\CustomerConfigurationType, label: customer }
 
   workouse_referral_marketing_plugin.promotion_coupon_generator:
-    class: Workouse\ReferralMarketingPlugin\Service\PromotionCouponGenerator
+    class: Workouse\SyliusReferralMarketingPlugin\Service\PromotionCouponGenerator
     arguments:
       - '@sylius.factory.promotion_coupon'
       - '@sylius.repository.promotion_coupon'
@@ -43,7 +43,7 @@ services:
       - '@sylius.promotion_coupon_generator.percentage_policy'
 
   workouse_referral_marketing_plugin.promotion_reference_subscriber:
-    class: Workouse\ReferralMarketingPlugin\EventSubscriber\ReferenceSubscriber
+    class: Workouse\SyliusReferralMarketingPlugin\EventSubscriber\ReferenceSubscriber
     arguments:
       - '@service_container'
       - '%workouse_referral_marketing.service%'
@@ -53,7 +53,7 @@ services:
       - { name: 'kernel.event_listener', event: 'sylius.customer.post_register', method: 'referrerUserRegistration' }
 
   workouse_referral_marketing_plugin.unique_referrer_validator:
-    class: Workouse\ReferralMarketingPlugin\Validator\Constraints\UniqueReferrerValidator
+    class: Workouse\SyliusReferralMarketingPlugin\Validator\Constraints\UniqueReferrerValidator
     arguments:
       - '@doctrine.orm.entity_manager'
       - '@translator'
@@ -61,12 +61,12 @@ services:
         - { name: validator.constraint_validator, alias: 'unique_referrer' }
 
   workouse_referral_marketing_plugin.reference.statistics_provider:
-    class: Workouse\ReferralMarketingPlugin\Provider\ReferenceStatisticsProvider
+    class: Workouse\SyliusReferralMarketingPlugin\Provider\ReferenceStatisticsProvider
     arguments:
       - '@workouse_referral_marketing_plugin.repository.reference'
 
   workouse_referral_marketing_plugin.controller.admin.dashboard:
-    class: Workouse\ReferralMarketingPlugin\Controller\DashboardController
+    class: Workouse\SyliusReferralMarketingPlugin\Controller\DashboardController
     public: true
     arguments:
       - '@templating'
@@ -74,12 +74,12 @@ services:
       - '@workouse_referral_marketing_plugin.repository.reference'
 
   workouse_referral_marketing_plugin.listener.admin.menu_builder:
-    class: Workouse\ReferralMarketingPlugin\Menu\AdminMenuListener
+    class: Workouse\SyliusReferralMarketingPlugin\Menu\AdminMenuListener
     tags:
       - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
 
   workouse_referral_marketing_plugin.controller.shop.reference:
-    class: Workouse\ReferralMarketingPlugin\Controller\ReferenceController
+    class: Workouse\SyliusReferralMarketingPlugin\Controller\ReferenceController
     public: true
     arguments:
       - '@sylius.canonicalizer'

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Workouse\ReferralMarketingPlugin\Behat\Context\Ui\Shop;
+namespace Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Context\Ui\Shop;
 
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManager;
@@ -11,11 +11,11 @@ use Sylius\Behat\NotificationType;
 use Sylius\Behat\Service\NotificationCheckerInterface;
 use Sylius\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Sylius\Behat\Service\SharedStorageInterface;
-use Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceCheckPage;
-use Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceIndexPage;
-use Tests\Workouse\ReferralMarketingPlugin\Behat\Page\Shop\ReferenceNewPage;
+use Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Page\Shop\ReferenceCheckPage;
+use Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Page\Shop\ReferenceIndexPage;
+use Tests\Workouse\SyliusReferralMarketingPlugin\Behat\Page\Shop\ReferenceNewPage;
 use Webmozart\Assert\Assert;
-use Workouse\ReferralMarketingPlugin\Entity\Reference;
+use Workouse\SyliusReferralMarketingPlugin\Entity\Reference;
 
 final class ReferenceContext implements Context
 {

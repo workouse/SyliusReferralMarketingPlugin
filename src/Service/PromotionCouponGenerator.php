@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Service;
+namespace Workouse\SyliusReferralMarketingPlugin\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Component\Promotion\Exception\FailedGenerationException;

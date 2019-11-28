@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Provider;
+namespace Workouse\SyliusReferralMarketingPlugin\Provider;
 
 class ReferenceStatistics
 {

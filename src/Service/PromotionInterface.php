@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Service;
+namespace Workouse\SyliusReferralMarketingPlugin\Service;
 
 use Sylius\Component\Customer\Model\Customer;
-use Workouse\ReferralMarketingPlugin\Entity\Reference;
+use Workouse\SyliusReferralMarketingPlugin\Entity\Reference;
 
 interface PromotionInterface
 {

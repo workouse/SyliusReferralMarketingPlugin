@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Workouse\ReferralMarketingPlugin\Event;
+namespace Workouse\SyliusReferralMarketingPlugin\Event;
 
 use Symfony\Contracts\EventDispatcher\Event;
-use Workouse\ReferralMarketingPlugin\Entity\Reference;
+use Workouse\SyliusReferralMarketingPlugin\Entity\Reference;
 
 class ReferenceEvent extends Event
 {
