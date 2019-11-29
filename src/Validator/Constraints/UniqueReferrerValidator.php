@@ -9,6 +9,7 @@ use Sylius\Component\Customer\Model\Customer;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Workouse\SyliusReferralMarketingPlugin\Entity\Reference;
 
 class UniqueReferrerValidator extends ConstraintValidator
 {
@@ -24,6 +25,10 @@ class UniqueReferrerValidator extends ConstraintValidator
         $this->translator = $translator;
     }
 
+    /**
+     * @param Reference $object
+     * @param UniqueReferrer $constraint
+     */
     public function validate($object, Constraint $constraint)
     {
         $referrer = $this->em->getRepository(Customer::class)->findOneBy([

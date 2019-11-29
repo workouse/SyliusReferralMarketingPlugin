@@ -25,16 +25,22 @@ class ReferenceSubscriber
 
     public function completeInviteeAfter(ReferenceEvent $event)
     {
-        $this->container->get($this->serviceName)->referrerExecute($event->getReference());
+        /** @var PromotionInterface $promotionService */
+        $promotionService = $this->container->get($this->serviceName);
+        $promotionService->referrerExecute($event->getReference());
     }
 
     public function completeReferenceAfter(ReferenceEvent $event)
     {
-        $this->container->get($this->serviceName)->inviteeExecute($event->getReference());
+        /** @var PromotionInterface $promotionService */
+        $promotionService = $this->container->get($this->serviceName);
+        $promotionService->inviteeExecute($event->getReference());
     }
 
     public function referrerUserRegistration(GenericEvent $event)
     {
-        $this->container->get($this->serviceName)->inviteeUserAfterExecute($event->getSubject());
+        /** @var PromotionInterface $promotionService */
+        $promotionService = $this->container->get($this->serviceName);
+        $promotionService->inviteeUserAfterExecute($event->getSubject());
     }
 }

@@ -5,24 +5,24 @@ declare(strict_types=1);
 namespace Workouse\SyliusReferralMarketingPlugin\Service;
 
 use Doctrine\ORM\EntityManager;
+use Sylius\Component\Core\Model\Promotion;
 use Sylius\Component\Customer\Model\Customer;
 use Sylius\Component\Customer\Model\CustomerInterface;
 use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInstructionInterface;
 use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInterface;
-use Sylius\Component\Promotion\Model\PromotionRuleInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Sylius\Component\User\Canonicalizer\CanonicalizerInterface;
 use Workouse\SyliusReferralMarketingPlugin\Entity\Reference;
 
 class PromotionService implements PromotionInterface
 {
-    /** @var PromotionRuleInterface */
+    /** @var RepositoryInterface */
     private $promotionRuleRepository;
 
     /** @var PromotionCouponGeneratorInterface */
     private $couponGenerator;
 
-    /** @var CustomerInterface */
+    /** @var RepositoryInterface */
     private $customerRuleRepository;
 
     /** @var EntityManager */
@@ -31,7 +31,7 @@ class PromotionService implements PromotionInterface
     /** @var CanonicalizerInterface */
     private $canonicalizer;
 
-    /** @var \Sylius\Component\Core\Model\PromotionInterface */
+    /** @var RepositoryInterface */
     private $promotionRepository;
 
     /** @var string */
@@ -49,7 +49,8 @@ class PromotionService implements PromotionInterface
         RepositoryInterface $promotionRepository,
         $referrerPromotionCode,
         $inviteePromotionCode
-    ) {
+    )
+    {
         $this->promotionRuleRepository = $promotionRuleRepository;
         $this->couponGenerator = $couponGenerator;
         $this->customerRuleRepository = $customerRuleRepository;
@@ -62,12 +63,13 @@ class PromotionService implements PromotionInterface
 
     public function referrerExecute(Reference $reference)
     {
+        /** @var Promotion $referrerPromotion */
         $referrerPromotion = $this->promotionRepository->findOneBy([
             'code' => $this->referrerPromotionCode,
         ]);
 
-        if ($referrerPromotion) {
-            /** @var CustomerInterface $referrer */
+        if ($referrerPromotion instanceof Promotion) {
+            /** @var Customer $referrer */
             $referrer = $reference->getReferrer();
 
             /** @var PromotionCouponGeneratorInstructionInterface $instruction */
@@ -79,11 +81,12 @@ class PromotionService implements PromotionInterface
 
     public function inviteeExecute(Reference $reference)
     {
+        /** @var Promotion $inviteePromotion */
         $inviteePromotion = $this->promotionRepository->findOneBy([
             'code' => $this->inviteePromotionCode,
         ]);
 
-        if ($inviteePromotion) {
+        if ($inviteePromotion instanceof Promotion) {
             /** @var PromotionCouponGeneratorInstructionInterface $instruction */
             $instruction = new PromotionCouponGeneratorInstruction();
             $instruction->setAmount(1);
@@ -100,11 +103,12 @@ class PromotionService implements PromotionInterface
         ]);
 
         if ($referrer) {
+            /** @var Promotion $inviteePromotion */
             $inviteePromotion = $this->promotionRepository->findOneBy([
                 'code' => $this->inviteePromotionCode,
             ]);
 
-            if ($inviteePromotion) {
+            if ($inviteePromotion instanceof Promotion) {
                 /** @var PromotionCouponGeneratorInstructionInterface $instruction */
                 $instruction = new PromotionCouponGeneratorInstruction();
                 $instruction->setAmount(1);
