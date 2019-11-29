@@ -18,5 +18,4 @@ class ReferenceCheckPage extends SymfonyPage
     {
         return 'workouse_referral_marketing_check';
     }
-
 }

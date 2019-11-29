@@ -48,8 +48,7 @@ final class ReferenceContext implements Context
         ReferenceIndexPage $referenceIndexPage,
         ReferenceCheckPage $referenceCheckPage,
         EntityManager $entityManager
-    )
-    {
+    ) {
         $this->sharedStorage = $sharedStorage;
         $this->currentPageResolver = $currentPageResolver;
         $this->notificationChecker = $notificationChecker;
@@ -177,7 +176,7 @@ final class ReferenceContext implements Context
     public function bar()
     {
         $this->checkPage->open([
-            'hash' => $this->entityManager->getRepository(Reference::class)->findAll()[0]->getHash()
+            'hash' => $this->entityManager->getRepository(Reference::class)->findAll()[0]->getHash(),
         ]);
     }
 
@@ -187,5 +186,4 @@ final class ReferenceContext implements Context
             $this->createPage,
         ]);
     }
-
 }

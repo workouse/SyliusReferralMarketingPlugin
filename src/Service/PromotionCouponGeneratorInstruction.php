@@ -43,7 +43,7 @@ final class PromotionCouponGeneratorInstruction implements PromotionCouponGenera
      */
     public function setAmount(?int $amount): void
     {
-        $this->amount = (int)$amount;
+        $this->amount = (int) $amount;
     }
 
     public function getPrefix(): ?string
@@ -69,7 +69,7 @@ final class PromotionCouponGeneratorInstruction implements PromotionCouponGenera
      */
     public function setCodeLength(?int $codeLength): void
     {
-        $this->codeLength = (int)$codeLength;
+        $this->codeLength = (int) $codeLength;
     }
 
     public function getSuffix(): ?string

@@ -7,7 +7,6 @@ namespace Workouse\SyliusReferralMarketingPlugin\Service;
 use Doctrine\ORM\EntityManager;
 use Sylius\Component\Core\Model\Promotion;
 use Sylius\Component\Customer\Model\Customer;
-use Sylius\Component\Customer\Model\CustomerInterface;
 use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInstructionInterface;
 use Sylius\Component\Promotion\Generator\PromotionCouponGeneratorInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -49,8 +48,7 @@ class PromotionService implements PromotionInterface
         RepositoryInterface $promotionRepository,
         $referrerPromotionCode,
         $inviteePromotionCode
-    )
-    {
+    ) {
         $this->promotionRuleRepository = $promotionRuleRepository;
         $this->couponGenerator = $couponGenerator;
         $this->customerRuleRepository = $customerRuleRepository;

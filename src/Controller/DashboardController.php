@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Workouse\SyliusReferralMarketingPlugin\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Workouse\SyliusReferralMarketingPlugin\Provider\ReferenceStatisticsProvider;
 use Workouse\SyliusReferralMarketingPlugin\Repository\ReferenceRepository;
 

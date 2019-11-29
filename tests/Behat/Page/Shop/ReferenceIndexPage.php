@@ -30,5 +30,4 @@ class ReferenceIndexPage extends SymfonyPage
             'ReferralStatus' => 'span.label',
         ]);
     }
-
 }
