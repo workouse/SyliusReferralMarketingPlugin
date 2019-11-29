@@ -14,10 +14,10 @@ class ReferenceSubscriber
     /** @var Container */
     private $container;
 
-    /** @var PromotionInterface */
+    /** @var string */
     private $serviceName;
 
-    public function __construct(Container $container, $serviceName)
+    public function __construct(Container $container, string $serviceName)
     {
         $this->container = $container;
         $this->serviceName = $serviceName;
